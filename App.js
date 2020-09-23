@@ -197,7 +197,7 @@ class App extends Component {
 
     axios
       //.post("http://localhost:4200/api/login", bodyLogin)
-	  .post(API_URL+'/api/login',bodyLogin)
+	  .post(API_URL+'/api/login')
       .then(res => {
         // console.log(decodedData.Account);
         console.log(jwt.decode(res.data));
