@@ -138,7 +138,7 @@ class LeaveApplicationEmpTable extends Component {
   loadLeaveApplicationEmpData = () => {
     axios
       .get(
-        "http://localhost:4200/api/jbChange-Voc-emp/" +
+        process.env.REACT_APP_API_URL+ "/api/jbChange-Voc-emp/" +
         this.props.data["_id"], {
         headers: {
           authorization: localStorage.getItem("token") || ""
@@ -184,7 +184,7 @@ class LeaveApplicationEmpTable extends Component {
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
-          "http://localhost:4200/api/jbChange-Voc-emp/" + e1 + "/" + e2, {
+          process.env.REACT_APP_API_URL+ "/api/jbChange-Voc-emp/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }

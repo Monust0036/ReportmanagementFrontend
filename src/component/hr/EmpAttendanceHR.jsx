@@ -58,7 +58,7 @@ class LeaveApplicationHR extends Component {
 
       };
       axios
-        .post("http://localhost:4200/api/emp-attendance-hr/" + this.props.data["_id"], body, {
+        .post(process.env.REACT_APP_API_URL+ "/api/emp-attendance-hr/" + this.props.data["_id"], body, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }
@@ -103,7 +103,7 @@ class LeaveApplicationHR extends Component {
       console.log("update", body);
       axios
         .put(
-          "http://localhost:4200/api/emp-attendance-hr/" + info["_id"],
+          process.env.REACT_APP_API_URL+ "/api/emp-attendance-hr/" + info["_id"],
           body, {
           headers: {
             authorization: localStorage.getItem("token") || ""
