@@ -20,7 +20,7 @@ import {
 } from "react-router-dom";
 import history from "./history.js";
 
-const API_URL = process.env.API_URL || 'http://localhost:4200';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4200';
 
 class App extends Component {
   state = {
@@ -197,7 +197,7 @@ class App extends Component {
 
     axios
       //.post("http://localhost:4200/api/login", bodyLogin)
-	  .post(API_URL+'/api/login')
+	  .post(API_URL+'/api/login',bodyLogin)
       .then(res => {
         // console.log(decodedData.Account);
         console.log(jwt.decode(res.data));
