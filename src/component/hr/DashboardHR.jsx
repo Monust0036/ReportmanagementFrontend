@@ -17,8 +17,9 @@ import Employee from "../Employee.jsx";
 import LeaveApplicationHR from "./LeaveApplicationHR.jsx";
 import TourDetailHR from "./TourDetailHr.jsx";
 import AddExpenseHR from "./AddExpenseHR.jsx";
-import JbChangeVocHR from "./JBChangeVocHR.jsx"
-import EmpAttendanceHR from "./EmpAttendanceHR.jsx"
+import JbChangeVocHR from "./JBChangeVocHR.jsx";
+import IrTestHR from "./IrTestReportHR.jsx";
+import EmpAttendanceHR from "./EmpAttendanceHR.jsx";
 
 import NotFound404 from "../NotFound404.jsx";
 
@@ -82,6 +83,9 @@ function AddExpenseHRF(){
 }
 function JbChangeVocHRF(){
   return <JbChangeVocHR />;
+}
+function IrTestHRF(){
+  return <IrTestHR />;
 }
 
 // function HRPortalF() {
@@ -171,6 +175,12 @@ class DashboardHR extends Component {
                   <Link to="/hr/jbChange-Voc-hr">
                     <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
                     Jb Change Voc  
+                  </Link> 
+                </li>
+                <li>
+                  <Link to="/hr/ir-test-hr">
+                    <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
+                    IR Test Report
                   </Link> 
                 </li>
                 <li>
@@ -300,6 +310,11 @@ class DashboardHR extends Component {
                   path="/hr/jbChange-Voc-hr"
                   exact
                   component={JbChangeVocHRF}
+                />
+                <Route
+                  path="/hr/ir-test-hr"
+                  exact
+                  component={IrTestHRF}
                 />
                  {/* <Route
                   path="/hr/portal-master"
