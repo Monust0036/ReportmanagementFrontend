@@ -14,6 +14,8 @@ import Attendance from "./Attendance.jsx"
 import TourDetail from "./TourDetail.jsx"
 import AddExpense from "./AddExpenseEmp.jsx"
 import JBChangeVocEmp from "./JBChangeVocEmp.jsx"
+import IrTestEmp from "./IrTestEmp.jsx"
+
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -168,6 +170,17 @@ class DashboardHR extends Component {
                   </Link>
                 </li>
                 <li>
+                  <Link to={
+                      "/employee/" + this.props.data["_id"] + "/IR-Test"
+                    }>
+                    <FontAwesomeIcon
+                      icon={faFileAlt}
+                      className="sidebar-icon"
+                    />
+                    IR Test
+                  </Link>
+                </li>
+                <li>
                 <Link to={
                       "/employee/" + this.props.data["_id"] + "/attendance"
                     }>
@@ -233,6 +246,12 @@ class DashboardHR extends Component {
                   exact
                   path="/employee/:id/JB-Change-VoC"
                   render={props => <JBChangeVocEmp data={this.props.data} />}
+              
+                />
+                <Route
+                  exact
+                  path="/employee/:id/IR-Test"
+                  render={props => < IrTestEmp data={this.props.data}/>}
               
                 />
                 <Route
