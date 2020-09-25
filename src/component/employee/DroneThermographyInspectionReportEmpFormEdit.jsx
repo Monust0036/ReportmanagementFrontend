@@ -171,35 +171,7 @@ class LeaveApplicationEmpForm extends Component {
        onChange={value => this.onReportedByDataChange(value)}/>
     </Col>
   </Form.Group>
-  {/* <Form.Group as={Row}>
-     <Form.Label column sm={2}>
-      Module Make
-     </Form.Label>
-     <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="Module Make" required
-       value={this.state.ModuleMakeData}
-       onChange={value => this.onModuleMakeDataChange(value)}/>
-    </Col>
-  </Form.Group> */}
-  {/* <Form.Group as={Row}>
-     <Form.Label column sm={2}>
-      File Attachement 
-     </Form.Label>
-     <Col sm={10}  className="form-input">
-      <Form.Control type="file" placeholder="update file" required
-       />
-    </Col>
-  </Form.Group> */}
-  {/* <Form.Group as={Row}>
-     <Form.Label column sm={2}>
-      Remarks
-     </Form.Label>
-     <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="Remarks" required
-       value={this.state.RemarkData}
-       onChange={value => this.onRemarkDataChange(value)}/>
-    </Col>
-    </Form.Group> */}
+ 
 
     <Form.Group as={Row} id="form-submit-button">
               <Col sm={{ span: 10, offset: 2 }}>
