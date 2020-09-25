@@ -153,7 +153,7 @@ class AdminCompanyTable extends Component {
 
   loadCompanyData = () => {
     axios
-      .get("http://localhost:4200/api/company", {
+      .get(process.env.REACT_APP_API_URL+ "/api/company", {
         headers: {
           authorization: localStorage.getItem("token") || ""
         }
@@ -201,7 +201,7 @@ class AdminCompanyTable extends Component {
     console.log(e);
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
-        .delete("http://localhost:4200/api/company/" + e, {
+        .delete(process.env.REACT_APP_API_URL+ "/api/company/" + e, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }

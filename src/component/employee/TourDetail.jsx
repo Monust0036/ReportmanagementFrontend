@@ -63,7 +63,7 @@ class LeaveApplicationEmp extends Component {
     //   Status: event.target[4].value,
     };
     axios
-      .post("http://localhost:4200/api/tour-detail-emp/" + this.props.data["_id"], body, {
+      .post(process.env.REACT_APP_API_URL+ "/api/tour-detail-emp/" + this.props.data["_id"], body, {
         headers: {
           authorization: localStorage.getItem("token") || ""
         }
@@ -115,7 +115,7 @@ class LeaveApplicationEmp extends Component {
     console.log("update", body);
     axios
       .put(
-        "http://localhost:4200/api/tour-detail-emp/" + info["_id"],
+        process.env.REACT_APP_API_URL+ "/api/tour-detail-emp/" + info["_id"],
         body, {
         headers: {
           authorization: localStorage.getItem("token") || ""

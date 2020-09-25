@@ -76,7 +76,7 @@ class AdminPortalTable extends Component {
 
   loadPortalData = () => {
     axios
-      .get("http://localhost:4200/api/admin/portal", {
+      .get(process.env.REACT_APP_API_URL+ "/api/admin/portal", {
         headers: {
           authorization: localStorage.getItem("token") || ""
         }
@@ -114,7 +114,7 @@ class AdminPortalTable extends Component {
       ) == true
     ) {
       axios
-        .delete("http://localhost:4200/api/admin/portal/" + e, {
+        .delete(process.env.REACT_APP_API_URL+ "/api/admin/portal/" + e, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }

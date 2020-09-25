@@ -53,7 +53,7 @@ class AdminProjectBidFormEdit extends Component {
   }
   loadPortalsInfo = () => {
     axios
-      .get("http://localhost:4200/api/admin/portal", {
+      .get(process.env.REACT_APP_API_URL+ "/api/admin/portal", {
         headers: {
           authorization: localStorage.getItem("token") || ""
         }
