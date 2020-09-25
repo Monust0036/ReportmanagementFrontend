@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./LeaveApplicationEmp.css";
 import axios from "axios";
-import LeaveApplicationEmpTable from "./IrTestEmpTable.jsx";
-import LeaveApplicationEmpForm from "./IrTestEmpForm.jsx";
-import LeaveApplicationEmpFormEdit from "./IrTestEmpFormEdit.jsx";
+import LeaveApplicationEmpTable from "./DroneThermographyInspectionReportEmpTable.jsx";
+import LeaveApplicationEmpForm from "./DroneThermographyInspectionReportEmpForm.jsx";
+import LeaveApplicationEmpFormEdit from "./DroneThermographyInspectionReportEmpFormEdit.jsx";
 class LeaveApplicationEmp extends Component {
   state = {
     table: true,
@@ -63,7 +63,7 @@ class LeaveApplicationEmp extends Component {
     };
     
     axios
-      .post("http://localhost:4200/api/ir-test-emp/" + this.props.data["_id"], body, {
+      .post("http://localhost:4200/api/drone-thermography-inspection-emp/" + this.props.data["_id"], body, {
         headers: {
           // "content-type": "multipart/form-data",
           authorization: localStorage.getItem("token") || ""
@@ -123,7 +123,7 @@ class LeaveApplicationEmp extends Component {
     console.log("update", body);
     axios
       .put(
-        "http://localhost:4200/api/ir-test-emp/" + info["_id"],
+        "http://localhost:4200/api/drone-thermography-inspection-emp/" + info["_id"],
         body, {
         headers: {
           authorization: localStorage.getItem("token") || ""

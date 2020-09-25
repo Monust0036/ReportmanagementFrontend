@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./LeaveApplicationEmp.css";
 import axios from "axios";
-import LeaveApplicationEmpTable from "./IrTestEmpTable.jsx";
-import LeaveApplicationEmpForm from "./IrTestEmpForm.jsx";
-import LeaveApplicationEmpFormEdit from "./IrTestEmpFormEdit.jsx";
+import LeaveApplicationEmpTable from "./VisualInspectionReportTable.jsx";
+import LeaveApplicationEmpForm from "./VisualInspectionReportForm.jsx";
+import LeaveApplicationEmpFormEdit from "./VisualInspectionReportFormEdit.jsx";
 class LeaveApplicationEmp extends Component {
   state = {
     table: true,
@@ -63,7 +63,7 @@ class LeaveApplicationEmp extends Component {
     };
     
     axios
-      .post("http://localhost:4200/api/ir-test-emp/" + this.props.data["_id"], body, {
+      .post("http://localhost:4200/api/visual-inspection-report-emp/" + this.props.data["_id"], body, {
         headers: {
           // "content-type": "multipart/form-data",
           authorization: localStorage.getItem("token") || ""
@@ -120,10 +120,10 @@ class LeaveApplicationEmp extends Component {
       ReportedBy: newInfo.target[5].value,
     
      };
-    console.log("update", body);
+    console.log("update>>>>>>>>>>>>>>>>>", body);
     axios
       .put(
-        "http://localhost:4200/api/ir-test-emp/" + info["_id"],
+        "http://localhost:4200/api/visual-inspection-report-emp/" + info["_id"],
         body, {
         headers: {
           authorization: localStorage.getItem("token") || ""

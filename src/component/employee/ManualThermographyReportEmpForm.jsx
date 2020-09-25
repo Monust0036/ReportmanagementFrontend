@@ -22,7 +22,7 @@ class LeaveApplicationEmpForm extends Component {
     return (
       <div>
         
-        <h2 id="role-form-title">IR Test Report</h2>
+        <h2 id="role-form-title">Manual Thermography Report</h2>
  <div id="role-form-outer-div"><Form id="form" enctype="multipart/form-data" onSubmit={this.props.onLeaveApplicationEmpSubmit} >
   
 

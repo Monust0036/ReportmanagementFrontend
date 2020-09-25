@@ -34,7 +34,7 @@ class LeaveApplicationHRForm extends Component {
     return (
       <div>
         <h2 id="role-form-title">
-          Edit IR Test Report  {this.state.TourNoGeneratedData}
+        Manual Thermography Report  {this.state.TourNoGeneratedData}
         </h2>
 
         <div id="role-form-outer-div">
@@ -116,7 +116,7 @@ class LeaveApplicationHRForm extends Component {
        />
     </Col>
   </Form.Group>
-  <Form.Group as={Row}>
+  {/* <Form.Group as={Row}>
     <Form.Label column sm={2}>
     Module Make
     </Form.Label>
@@ -125,7 +125,7 @@ class LeaveApplicationHRForm extends Component {
        value={this.state.ModuleMakeData}
        />
     </Col>
-  </Form.Group>
+  </Form.Group> */}
 
             
 

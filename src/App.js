@@ -50,9 +50,6 @@ class App extends Component {
       setTimeout(function () {
         window.alert(
           `To explore the feature of this application here is the temporary id and pass for all account
-      Admin:
-          id:admin@gmail.com
-          pass:admin
       Hr:
           id:hr@gmail.com
           pass:hr

@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import "./LeaveApplicationEmpTable.css";
+import "./LeaveApplicationHRTable.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTrash, faEdit, faFileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { RingLoader } from "react-spinners";
 import { css } from "@emotion/core";
-import { Button } from "react-bootstrap";
+import { Form, Button, Col, Row } from "react-bootstrap";
+
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
-
 
 const override = css`
   display: block;
@@ -18,14 +18,20 @@ const override = css`
   border-color: red;
 `;
 
-class LeaveApplicationEmpTable extends Component {
+class LeaveApplicationHRTable extends Component {
   state = {
-    leaveApplicationEmpData: [],
+    leaveApplicationHRData: [],
     loading: true,
+    searchData: "",
 
     columnDefs: [
-
         {
+            headerName: "Emloyee Code",
+            field: "EmployeeCode",
+            sortable: true
+            // filter: true ,
+          },
+          {
             headerName: "Date",
             field: "Date",
             sortable: true,
@@ -34,22 +40,14 @@ class LeaveApplicationEmpTable extends Component {
             // width: 150,
             // filter: true ,
           },
-          {
-            headerName: "OA Number",
-            field: "OANumber",
-            sortable: true,
-            // width: 150,
-            // filter: true ,
-          },
     
-    //   {
-    //     headerName: "TourNumber",
-    //     field: "TourNoGenerated",
-    //     sortable: true,
-    //     // width: 150,
-    //     // filter: true ,
-    //   },
-      
+      {
+        headerName: "OANumber",
+        field: "OANumber",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
       {
         headerName: "State",
         field: "State",
@@ -78,90 +76,84 @@ class LeaveApplicationEmpTable extends Component {
         // width: 150,
         // filter: true ,
       },
-      
     //   {
-    //     headerName: "Voc File Attachement",
-    //     field: "file",
-    //     cellRendererFramework: this.renderDownloadFile.bind(this)
-    //     // sortable: true,
+    //     headerName: "ModuleMake",
+    //     field: "ModuleMake",
+    //     sortable: true,
     //     // width: 150,
     //     // filter: true ,
     //   },
     //   {
-    //     headerName: "MOM Attachement",
-    //     field: "file",
-    //     cellRendererFramework: this.renderDownloadFile.bind(this)
-    //     // sortable: true,
+    //     headerName: "TransferToAnotherMember",
+    //     field: "TransferToAnotherMember",
+    //     sortable: true,
     //     // width: 150,
     //     // filter: true ,
     //   },
-
-
-      {
-        headerName: "",
-        field: "edit",
-        filter: false,
-        width: 30,
-        cellRendererFramework: this.renderEditButton.bind(this)
-      },
-      {
-        headerName: "",
-        field: "delete",
-        filter: false,
-        width: 30,
-        cellRendererFramework: this.renderButton.bind(this)
-      }
+    //   {
+    //     headerName: "Remark",
+    //     field: "Remark",
+    //     sortable: true,
+    //     // width: 150,
+    //     // filter: true ,
+    //   },
+          {
+            headerName: "",
+            field: "edit",
+            filter: false,
+            width: 30,
+            cellRendererFramework: this.renderEditButton.bind(this)
+          },
+          {
+            headerName: "",
+            field: "delete",
+            filter: false,
+            width: 30,
+            cellRendererFramework: this.renderButton.bind(this)
+          }
     ],
     rowData: [],
-
     defaultColDef: {
       resizable: true,
-      width: 235,
+      width: 170,
       filter: "agTextColumnFilter"
       // filter: true ,
     },
     getRowHeight: function (params) {
       return 35;
     }
-
   };
-  leaveApplicationEmpObj = [];
+  leaveApplicationHRObj = [];
   rowDataT = [];
 
-
-  loadLeaveApplicationEmpData = () => {
+  loadLeaveApplicationHRData = () => {
     axios
-      .get(
-        "http://localhost:4200/api/ir-test-emp/" +
-        this.props.data["_id"], {
+      .get("http://localhost:4200/api/manual-thermography-report-hr/", {
         headers: {
           authorization: localStorage.getItem("token") || ""
         }
-      }
-      )
+      })
       .then(response => {
-        this.leaveApplicationEmpObj = response.data;
-        console.log("response-----", response.data);
-        this.setState({ leaveApplicationEmpData: response.data });
+        this.leaveApplicationHRObj = response.data;
+        console.log("response*********************", response.data);
+        this.setState({ leaveApplicationHRData: response.data });
         this.setState({ loading: false });
         this.rowDataT = [];
-        // let data=this.educationObj.education["0"];
-        this.leaveApplicationEmpObj.irTest.map(data => {
+
+        this.leaveApplicationHRObj.map(data => {
           let temp = {
             data,
+            EmployeeCode: data["employee"][0]["EmployeeCode"],
             Date: data["Date"].slice(0, 10),
-            // TourNoGenerated:data["TourNoGenerated"],
+            // TourNoGenerated:data["addExpense"][0]["TourNoGenerated"],
             OANumber: data["OANumber"],
             State: data["State"],
             CustomerName: data["CustomerName"],
             SiteName: data["SiteName"],
             ReportedBy: data["ReportedBy"],
+            // TransferToAnotherMember:data["TransferToAnotherMember"],
+            ModuleMake: data["ModuleMake"],
             
-
-            // ToDate: data["ToDate"].slice(0, 10),
-            // Reasonforleave: data["Reasonforleave"],
-            // Status: this.status(data["Status"]),
-
           };
 
           this.rowDataT.push(temp);
@@ -173,12 +165,12 @@ class LeaveApplicationEmpTable extends Component {
       });
   };
 
-  onLeaveApplicationEmpDelete = (e1, e2) => {
+  onLeaveApplicationHRDelete = (e1, e2) => {
     console.log(e1, e2);
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
-          "http://localhost:4200/api/ir-test-emp/" + e1 + "/" + e2, {
+          "http://localhost:4200/api/manual-thermography-report-hr/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }
@@ -193,16 +185,18 @@ class LeaveApplicationEmpTable extends Component {
     }
   };
   componentDidMount() {
-    this.loadLeaveApplicationEmpData();
+    this.loadLeaveApplicationHRData();
   }
-
   renderButton(params) {
     console.log(params);
     return (
       <FontAwesomeIcon
         icon={faTrash}
         onClick={() =>
-          this.onLeaveApplicationEmpDelete(this.props.data["_id"], params.data.data["_id"])
+          this.onLeaveApplicationHRDelete(
+            params.data.data["employee"][0]["_id"],
+            params.data.data["_id"]
+          )
         }
       />
     );
@@ -212,19 +206,10 @@ class LeaveApplicationEmpTable extends Component {
     return (
       <FontAwesomeIcon
         icon={faEdit}
-        onClick={() => this.onEdit(params.data.data)}
+        onClick={() => this.props.onEditLeaveApplicationHR(params.data.data)}
       />
     );
-}
-renderDownloadFile(params) {
-  console.log(params);
-  return (
-    <FontAwesomeIcon
-      icon={faFileAlt}
-      onClick={() => this.onEdit(params.data.data)}
-    />
-  );
-}
+  }
 
   status = s => {
     if (s == 1) {
@@ -237,7 +222,7 @@ renderDownloadFile(params) {
       return "Rejected";
     }
   };
-  onEdit = data => {
+onEdit = data => {
     if (data["Status"] != 1) {
       this.props.onEditLeaveApplicationEmp(data);
     } else {
@@ -250,20 +235,9 @@ renderDownloadFile(params) {
   render() {
     return (
       <div id="table-outer-div-scroll">
-        <h2 id="role-title">IR Test Reports</h2>
-
-        <Button
-          variant="primary"
-          id="add-button"
-          onClick={this.props.onAddLeaveApplicationEmp}
-        >
-          <FontAwesomeIcon icon={faPlus} id="plus-icon" />
-          Add
-        </Button>
+        <h2 id="role-title">Manual Thermography Reports</h2>
 
         <div id="clear-both" />
-
-
         {!this.state.loading ? (
           <div
             id="table-div"
@@ -299,11 +273,10 @@ renderDownloadFile(params) {
             </div>
           )}
 
-
-
+       
       </div>
     );
   }
 }
 
-export default LeaveApplicationEmpTable;
+export default LeaveApplicationHRTable;

@@ -235,7 +235,7 @@ onEdit = data => {
   render() {
     return (
       <div id="table-outer-div-scroll">
-        <h2 id="role-title">JB Change Voc Reports</h2>
+        <h2 id="role-title">IR Test Reports</h2>
 
         <div id="clear-both" />
         {!this.state.loading ? (

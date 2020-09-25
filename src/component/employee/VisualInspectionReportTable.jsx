@@ -132,7 +132,7 @@ class LeaveApplicationEmpTable extends Component {
   loadLeaveApplicationEmpData = () => {
     axios
       .get(
-        "http://localhost:4200/api/ir-test-emp/" +
+        "http://localhost:4200/api/visual-inspection-report-emp/" +
         this.props.data["_id"], {
         headers: {
           authorization: localStorage.getItem("token") || ""
@@ -146,7 +146,7 @@ class LeaveApplicationEmpTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
         // let data=this.educationObj.education["0"];
-        this.leaveApplicationEmpObj.irTest.map(data => {
+        this.leaveApplicationEmpObj.visualInspectionReport.map(data => {
           let temp = {
             data,
             Date: data["Date"].slice(0, 10),
@@ -156,11 +156,6 @@ class LeaveApplicationEmpTable extends Component {
             CustomerName: data["CustomerName"],
             SiteName: data["SiteName"],
             ReportedBy: data["ReportedBy"],
-            
-
-            // ToDate: data["ToDate"].slice(0, 10),
-            // Reasonforleave: data["Reasonforleave"],
-            // Status: this.status(data["Status"]),
 
           };
 
@@ -178,7 +173,7 @@ class LeaveApplicationEmpTable extends Component {
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
-          "http://localhost:4200/api/ir-test-emp/" + e1 + "/" + e2, {
+          "http://localhost:4200/api/visual-inspection-report-emp/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }
@@ -250,7 +245,7 @@ renderDownloadFile(params) {
   render() {
     return (
       <div id="table-outer-div-scroll">
-        <h2 id="role-title">IR Test Reports</h2>
+        <h2 id="role-title">Visual Inspection Report</h2>
 
         <Button
           variant="primary"

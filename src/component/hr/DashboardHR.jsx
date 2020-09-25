@@ -20,6 +20,11 @@ import AddExpenseHR from "./AddExpenseHR.jsx";
 import JbChangeVocHR from "./JBChangeVocHR.jsx";
 import IrTestHR from "./IrTestReportHR.jsx";
 import EmpAttendanceHR from "./EmpAttendanceHR.jsx";
+import DroneThermographyInspectionReportHR from "./DroneThermographyInspectionReportHR.jsx";
+import ElInspectionReportHR from "./ElInspectionReportHR.jsx";
+import ManualThermographyReportHR from "./ManualThermographyReportHR.jsx";
+import VisualInspectionReportHR from "./VisualInspectionReportHR";
+
 
 import NotFound404 from "../NotFound404.jsx";
 
@@ -87,6 +92,23 @@ function JbChangeVocHRF(){
 function IrTestHRF(){
   return <IrTestHR />;
 }
+function DroneThermographyInspectionReportHRF(){
+  return <DroneThermographyInspectionReportHR />;
+}
+
+function ElInspectionReportHRF(){
+  return <ElInspectionReportHR />;
+}
+
+function ManualThermographyReportHRF(){
+  return <ManualThermographyReportHR />;
+}
+
+function VisualInspectionReportHRF(){
+  return <VisualInspectionReportHR />;
+}
+
+
 
 // function HRPortalF() {
 //   return <HRPortal />;
@@ -181,6 +203,33 @@ class DashboardHR extends Component {
                   <Link to="/hr/ir-test-hr">
                     <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
                     IR Test Report
+                  </Link> 
+                </li>
+                
+                <li>
+                  <Link to="/hr/drone-thermography-inspection-report-hr">
+                    <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
+                    Drone Thermography
+                  </Link> 
+                </li>
+                
+                <li>
+                  <Link to="/hr/manual-thermography-report-hr">
+                    <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
+                    Manual Thermography
+                  </Link> 
+                </li>
+                
+                <li>
+                  <Link to="/hr/visual-inspection-report-hr">
+                    <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
+                    Visual Inspection
+                  </Link> 
+                </li>
+                <li>
+                  <Link to="/hr/el-inspection-report-hr">
+                    <FontAwesomeIcon icon={faFileAlt} className="sidebar-icon" /> 
+                    El Inspection 
                   </Link> 
                 </li>
                 <li>
@@ -315,6 +364,27 @@ class DashboardHR extends Component {
                   path="/hr/ir-test-hr"
                   exact
                   component={IrTestHRF}
+                />
+                
+                <Route
+                  path="/hr/drone-thermography-inspection-report-hr"
+                  exact
+                  component={DroneThermographyInspectionReportHRF}
+                />
+                <Route
+                  path="/hr/manual-thermography-report-hr"
+                  exact
+                  component={ManualThermographyReportHRF}
+                />
+                <Route
+                  path="/hr/el-inspection-report-hr"
+                  exact
+                  component={ElInspectionReportHRF}
+                />
+                <Route
+                  path="/hr/visual-inspection-report-hr"
+                  exact
+                  component={VisualInspectionReportHRF}
                 />
                  {/* <Route
                   path="/hr/portal-master"

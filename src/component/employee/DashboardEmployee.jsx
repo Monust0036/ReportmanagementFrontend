@@ -15,6 +15,11 @@ import TourDetail from "./TourDetail.jsx"
 import AddExpense from "./AddExpenseEmp.jsx"
 import JBChangeVocEmp from "./JBChangeVocEmp.jsx"
 import IrTestEmp from "./IrTestEmp.jsx"
+import VisualInspectionReportEmp from "./VisualInspectionReport.jsx"
+import ElInspectionReportEmp from "./ElInspectionReportEmp.jsx"
+import ManualThermographyReportEmp from "./ManualThermographyReportEmp.jsx"
+import DroneThermographyInspectionReportEmp from "./DroneThermographyInspectionReportEmp.jsx"
+
 
 
 
@@ -169,6 +174,30 @@ class DashboardHR extends Component {
                     JB Change VoC
                   </Link>
                 </li>
+                
+                <li>
+                  <Link to={
+                      "/employee/" + this.props.data["_id"] + "/visual-inspection-report"
+                    }>
+                    <FontAwesomeIcon
+                      icon={faFileAlt}
+                      className="sidebar-icon"
+                    />
+                    Visual Inspection
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to={
+                      "/employee/" + this.props.data["_id"] + "/el-inspection-report"
+                    }>
+                    <FontAwesomeIcon
+                      icon={faFileAlt}
+                      className="sidebar-icon"
+                    />
+                    EL Inspection
+                  </Link>
+                </li>
                 <li>
                   <Link to={
                       "/employee/" + this.props.data["_id"] + "/IR-Test"
@@ -178,6 +207,29 @@ class DashboardHR extends Component {
                       className="sidebar-icon"
                     />
                     IR Test
+                  </Link>
+                </li>
+                
+                <li>
+                  <Link to={
+                      "/employee/" + this.props.data["_id"] + "/manual-thermography-report"
+                    }>
+                    <FontAwesomeIcon
+                      icon={faFileAlt}
+                      className="sidebar-icon"
+                    />
+                    Manual Thermography
+                  </Link>
+                </li>
+                <li>
+                  <Link to={
+                      "/employee/" + this.props.data["_id"] + "/drone-thermography-inspection-report"
+                    }>
+                    <FontAwesomeIcon
+                      icon={faFileAlt}
+                      className="sidebar-icon"
+                    />
+                    Drone Thermography 
                   </Link>
                 </li>
                 <li>
@@ -252,6 +304,31 @@ class DashboardHR extends Component {
                   exact
                   path="/employee/:id/IR-Test"
                   render={props => < IrTestEmp data={this.props.data}/>}
+              
+                />
+                <Route
+                  exact
+                  path="/employee/:id/visual-inspection-report"
+                  render={props => < VisualInspectionReportEmp data={this.props.data}/>}
+              
+                />
+                
+                <Route
+                  exact
+                  path="/employee/:id/el-inspection-report"
+                  render={props => < ElInspectionReportEmp data={this.props.data}/>}
+              
+                />
+                <Route
+                  exact
+                  path="/employee/:id/manual-thermography-report"
+                  render={props => < ManualThermographyReportEmp data={this.props.data}/>}
+              
+                />
+                <Route
+                  exact
+                  path="/employee/:id/drone-thermography-inspection-report"
+                  render={props => < DroneThermographyInspectionReportEmp data={this.props.data}/>}
               
                 />
                 <Route

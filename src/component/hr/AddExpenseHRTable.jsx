@@ -144,6 +144,8 @@ class LeaveApplicationHRTable extends Component {
           let temp = {
             data,
             EmployeeCode: data["employee"][0]["EmployeeCode"],
+            TourNoGenerated:data["TourNoGenerated"],
+
             AddExpenseDate: data["AddExpenseDate"].slice(0, 10),
             // TourNoGenerated:data["addExpense"][0]["TourNoGenerated"],
             TicketFare: data["TicketFare"],
@@ -153,6 +155,7 @@ class LeaveApplicationHRTable extends Component {
             MiscExpense: data["MiscExpense"],
             TransferToAnotherMember:data["TransferToAnotherMember"],
             Remark: data["Remark"],
+            
             
           };
 
