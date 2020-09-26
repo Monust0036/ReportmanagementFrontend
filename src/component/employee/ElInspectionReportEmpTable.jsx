@@ -132,7 +132,7 @@ class LeaveApplicationEmpTable extends Component {
   loadLeaveApplicationEmpData = () => {
     axios
       .get(
-        process.env.REACT_APP_API_URL+ "api/el-inspection-report-emp/" +
+        process.env.REACT_APP_API_URL+ "/api/el-inspection-report-emp/" +
         this.props.data["_id"], {
         headers: {
           authorization: localStorage.getItem("token") || ""
@@ -178,7 +178,7 @@ class LeaveApplicationEmpTable extends Component {
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
-          process.env.REACT_APP_API_URL+ "api/el-inspection-report-emp/" + e1 + "/" + e2, {
+          process.env.REACT_APP_API_URL+ "/api/el-inspection-report-emp/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }

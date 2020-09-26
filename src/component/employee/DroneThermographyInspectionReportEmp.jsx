@@ -63,7 +63,7 @@ class LeaveApplicationEmp extends Component {
     };
     
     axios
-      .post(process.env.REACT_APP_API_URL+ "api/drone-thermography-inspection-emp/" + this.props.data["_id"], body, {
+      .post( process.env.REACT_APP_API_URL+ "/api/drone-thermography-inspection-emp/" + this.props.data["_id"], body, {
         headers: {
           // "content-type": "multipart/form-data",
           authorization: localStorage.getItem("token") || ""

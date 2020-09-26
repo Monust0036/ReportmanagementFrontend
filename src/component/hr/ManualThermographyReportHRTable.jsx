@@ -128,7 +128,7 @@ class LeaveApplicationHRTable extends Component {
 
   loadLeaveApplicationHRData = () => {
     axios
-      .get(process.env.REACT_APP_API_URL+ "api/manual-thermography-report-hr/", {
+      .get(process.env.REACT_APP_API_URL+ "/api/manual-thermography-report-hr/", {
         headers: {
           authorization: localStorage.getItem("token") || ""
         }
@@ -170,7 +170,7 @@ class LeaveApplicationHRTable extends Component {
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
-          process.env.REACT_APP_API_URL+ "api/manual-thermography-report-hr/" + e1 + "/" + e2, {
+          process.env.REACT_APP_API_URL+ "/api/manual-thermography-report-hr/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }

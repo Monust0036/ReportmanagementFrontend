@@ -63,7 +63,7 @@ class LeaveApplicationEmp extends Component {
     };
     
     axios
-      .post(process.env.REACT_APP_API_URL+ "api/el-inspection-report-emp/" + this.props.data["_id"], body, {
+      .post(process.env.REACT_APP_API_URL+ "/api/el-inspection-report-emp/" + this.props.data["_id"], body, {
         headers: {
           // "content-type": "multipart/form-data",
           authorization: localStorage.getItem("token") || ""
@@ -123,7 +123,7 @@ class LeaveApplicationEmp extends Component {
     console.log("update>>>>>>>>>>>>>>>>>", body);
     axios
       .put(
-        process.env.REACT_APP_API_URL+ "api/el-inspection-report-emp/" + info["_id"],
+        process.env.REACT_APP_API_URL+ "/api/el-inspection-report-emp/" + info["_id"],
         body, {
         headers: {
           authorization: localStorage.getItem("token") || ""
