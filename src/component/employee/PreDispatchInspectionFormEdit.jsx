@@ -80,7 +80,7 @@ class LeaveApplicationEmpForm extends Component {
   render() {
     return (
       <div>
-        <h2 id="role-form-title">In Process Inspection Report Detail</h2>
+        <h2 id="role-form-title">Pre Dispatch Inspection Report Detail</h2>
 
         <div id="role-form-outer-div">
           <Form

@@ -21,6 +21,7 @@ import ManualThermographyReportEmp from "./ManualThermographyReportEmp.jsx"
 import DroneThermographyInspectionReportEmp from "./DroneThermographyInspectionReportEmp.jsx" 
 import IVCurveAnalysisEmp from "./IVCurveAnalysis.jsx"
 import FactoryInspectionReportEmp from "./FactoryInspectionReport.jsx"
+import PreDispatchInspectionEmp from "./PreDispatchInspection.jsx"
 
 
 
@@ -258,6 +259,17 @@ class DashboardHR extends Component {
                   </Link>
                 </li>
                 <li>
+                  <Link to={
+                      "/employee/" + this.props.data["_id"] + "/pre-dispatch-inspection"
+                    }>
+                    <FontAwesomeIcon
+                      icon={faFileAlt}
+                      className="sidebar-icon"
+                    />
+                    PreDispatch Inspection 
+                  </Link>
+                </li>
+                <li>
                 <Link to={
                       "/employee/" + this.props.data["_id"] + "/attendance"
                     }>
@@ -366,6 +378,12 @@ class DashboardHR extends Component {
                   exact
                   path="/employee/:id/factory-inspection"
                   render={props => < FactoryInspectionReportEmp data={this.props.data}/>}
+              
+                />
+                <Route
+                  exact
+                  path="/employee/:id/pre-dispatch-inspection"
+                  render={props => < PreDispatchInspectionEmp data={this.props.data}/>}
               
                 />
                 <Route

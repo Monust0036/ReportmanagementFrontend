@@ -132,7 +132,7 @@ class LeaveApplicationEmpTable extends Component {
   loadLeaveApplicationEmpData = () => {
     axios
       .get(
-        process.env.REACT_APP_API_URL+ "/api/factory-inspection-emp/" +
+        process.env.REACT_APP_API_URL+ "/api/pre-dispatch-inspection-emp/" +
         this.props.data["_id"], {
         headers: {
           authorization: localStorage.getItem("token") || ""
@@ -146,7 +146,7 @@ class LeaveApplicationEmpTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
         // let data=this.educationObj.education["0"];
-        this.leaveApplicationEmpObj.factoryInspection.map(data => {
+        this.leaveApplicationEmpObj.preDispatchInspection.map(data => {
           let temp = {
             data,
             Date: data["Date"].slice(0, 10),
@@ -178,7 +178,7 @@ class LeaveApplicationEmpTable extends Component {
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
-          process.env.REACT_APP_API_URL+ "/api/factory-inspection-emp/" + e1 + "/" + e2, {
+          process.env.REACT_APP_API_URL+ "/api/pre-dispatch-inspection-emp/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }
@@ -250,7 +250,7 @@ renderDownloadFile(params) {
   render() {
     return (
       <div id="table-outer-div-scroll">
-        <h2 id="role-title">In Process Inspection Reports</h2>
+        <h2 id="role-title">Pre Dispatch Inspection Reports</h2>
 
         <Button
           variant="primary"
