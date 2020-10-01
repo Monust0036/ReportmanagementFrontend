@@ -18,7 +18,10 @@ import IrTestEmp from "./IrTestEmp.jsx"
 import VisualInspectionReportEmp from "./VisualInspectionReport.jsx"
 import ElInspectionReportEmp from "./ElInspectionReportEmp.jsx"
 import ManualThermographyReportEmp from "./ManualThermographyReportEmp.jsx"
-import DroneThermographyInspectionReportEmp from "./DroneThermographyInspectionReportEmp.jsx"
+import DroneThermographyInspectionReportEmp from "./DroneThermographyInspectionReportEmp.jsx" 
+import IVCurveAnalysisEmp from "./IVCurveAnalysis.jsx"
+import FactoryInspectionReportEmp from "./FactoryInspectionReport.jsx"
+
 
 
 
@@ -233,6 +236,28 @@ class DashboardHR extends Component {
                   </Link>
                 </li>
                 <li>
+                  <Link to={
+                      "/employee/" + this.props.data["_id"] + "/iv-curve-analysis"
+                    }>
+                    <FontAwesomeIcon
+                      icon={faFileAlt}
+                      className="sidebar-icon"
+                    />
+                    IV-Curve Analysis
+                  </Link>
+                </li>
+                <li>
+                  <Link to={
+                      "/employee/" + this.props.data["_id"] + "/factory-inspection"
+                    }>
+                    <FontAwesomeIcon
+                      icon={faFileAlt}
+                      className="sidebar-icon"
+                    />
+                    Factory Inspection 
+                  </Link>
+                </li>
+                <li>
                 <Link to={
                       "/employee/" + this.props.data["_id"] + "/attendance"
                     }>
@@ -329,6 +354,18 @@ class DashboardHR extends Component {
                   exact
                   path="/employee/:id/drone-thermography-inspection-report"
                   render={props => < DroneThermographyInspectionReportEmp data={this.props.data}/>}
+              
+                />
+                <Route
+                  exact
+                  path="/employee/:id/iv-curve-analysis"
+                  render={props => < IVCurveAnalysisEmp data={this.props.data}/>}
+              
+                />
+                <Route
+                  exact
+                  path="/employee/:id/factory-inspection"
+                  render={props => < FactoryInspectionReportEmp data={this.props.data}/>}
               
                 />
                 <Route
