@@ -146,7 +146,7 @@ class LeaveApplicationEmpTable extends Component {
         this.setState({ loading: false });
         this.rowDataT = [];
         // let data=this.educationObj.education["0"];
-        this.leaveApplicationEmpObj.irTest.map(data => {
+        this.leaveApplicationEmpObj.factoryInspectionReport.map(data => {
           let temp = {
             data,
             Date: data["Date"].slice(0, 10),

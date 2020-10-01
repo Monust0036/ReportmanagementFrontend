@@ -40,9 +40,9 @@ function DepartmentF() {
 function AdminPortalF() {
   return <AdminPortal />;
 }
-function AdminProjectBidF() {
-  return <AdminProjectBid />;
-}
+// function AdminProjectBidF() {
+//   return <AdminProjectBid />;
+// }
 
 class DashboardAdmin extends Component {
   state = {
@@ -103,7 +103,7 @@ class DashboardAdmin extends Component {
                     Department 
                   </Link> 
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/admin/project-bid">
                     <FontAwesomeIcon
                       icon={faDollarSign}
@@ -111,7 +111,7 @@ class DashboardAdmin extends Component {
                     /> 
                     Project Bidding 
                   </Link> 
-                </li>
+                </li> */}
                 <li>
                   <Link to="/admin/portal-master">
                     <FontAwesomeIcon icon={faTasks} className="sidebar-icon" /> 
@@ -144,11 +144,11 @@ class DashboardAdmin extends Component {
                   exact
                   component={AdminPortalF}
                 />
-                 <Route
+                 {/* <Route
                   path="/admin/project-bid"
                   exact
                   component={AdminProjectBidF}
-                />
+                /> */}
                 {/* <Route
                   exact
                   path="/admin"

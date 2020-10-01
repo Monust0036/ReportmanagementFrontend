@@ -80,13 +80,13 @@ class LeaveApplicationEmpTable extends Component {
         // width: 150,
         // filter: true ,
       },
-      // {
-      //   headerName: "Status",
-      //   field: "Status",
-      //   sortable: true,
-      //   // width: 150,
-      //   // filter: true ,
-      // },
+      {
+        headerName: "Status",
+        field: "Status",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
 
 
       {
@@ -150,7 +150,7 @@ class LeaveApplicationEmpTable extends Component {
 
             // ToDate: data["ToDate"].slice(0, 10),
             // Reasonforleave: data["Reasonforleave"],
-            // Status: this.status(data["Status"]),
+            Status: this.status(data["Status"]),
 
           };
 
@@ -207,26 +207,26 @@ class LeaveApplicationEmpTable extends Component {
     );
   }
 
-  // status = s => {
-  //   if (s == 1) {
-  //     return "Pending";
-  //   }
-  //   if (s == 2) {
-  //     return "Approved";
-  //   }
-  //   if (s == 3) {
-  //     return "Rejected";
-  //   }
-  // };
-  // onEdit = data => {
-  //   if (data["Status"] == 1) {
-  //     this.props.onEditLeaveApplicationEmp(data);
-  //   } else {
-  //     window.alert(
-  //       "You can not edit application after it approved or rejected"
-  //     );
-  //   }
-  // };
+  status = s => {
+    if (s == 1) {
+      return "Pending";
+    }
+    if (s == 2) {
+      return "Approved";
+    }
+    if (s == 3) {
+      return "Rejected";
+    }
+  };
+  onEdit = data => {
+    if (data["Status"] == 1) {
+      this.props.onEditLeaveApplicationEmp(data);
+    } else {
+      window.alert(
+        "You can not edit application after it approved or rejected"
+      );
+    }
+  };
 
   render() {
     return (

@@ -16,7 +16,7 @@ class LeaveApplicationEmpForm extends Component {
     // ToDateData: this.props.editData["ToDate"].slice(0, 10),
     DestinationPlannedData: this.props.editData["DestinationPlanned"],
     TourNoGeneratedData: this.props.editData["TourNoGenerated"],
-    // StatusData: this.props.editData["Status"],
+    StatusData: this.props.editData["Status"],
 
     // value={this.state.CompanyNameData}
     // onChange={value => this.onCompanyNameDataChange(value)}
@@ -48,9 +48,9 @@ class LeaveApplicationEmpForm extends Component {
   //   this.setState({ ToDateData: e.target.value });
   // }
   
-//   onStatusDataChange(e) {
-//     this.setState({StatusData: e.target.value });
-//   }
+  onStatusDataChange(e) {
+    this.setState({StatusData: e.target.value });
+  }
 
   componentWillMount() {
   }
@@ -150,7 +150,7 @@ class LeaveApplicationEmpForm extends Component {
             
             
             
-            {/* <Form.Group as={Row}>
+             {/* <Form.Group as={Row}>
               <Form.Label column sm={2}>
               ToDate
               </Form.Label>
@@ -172,7 +172,7 @@ class LeaveApplicationEmpForm extends Component {
        value={this.state.ReasonforleaveData}
        onChange={value => this.onReasonforleaveDataChange(value)}/>
     </Col>
-  </Form.Group>
+  </Form.Group> */}
    
   <Form.Group as={Row} >
     <Form.Label column sm={2}>
@@ -183,7 +183,7 @@ class LeaveApplicationEmpForm extends Component {
     <option value="1" selected disabled>Pending</option>
           </Form.Control>
     </Col>
-    </Form.Group> */}
+    </Form.Group> 
 
             <Form.Group as={Row} id="form-submit-button">
               <Col sm={{ span: 10, offset: 2 }}>

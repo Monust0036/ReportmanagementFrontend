@@ -74,7 +74,7 @@ class LeaveApplicationEmpForm extends Component {
     </Col>
   </Form.Group>
    
-  {/* <Form.Group as={Row} >
+  <Form.Group as={Row} >
     <Form.Label column sm={2}>
     Leave Status
     </Form.Label>
@@ -83,7 +83,7 @@ class LeaveApplicationEmpForm extends Component {
     <option value="1" selected>Pending</option>
           </Form.Control>
     </Col>
-    </Form.Group> */}
+    </Form.Group>
  
   
 
