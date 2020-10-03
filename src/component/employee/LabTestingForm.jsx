@@ -2,71 +2,96 @@ import React, { Component } from "react";
 import "./LeaveApplicationEmpForm.css";
 import { Form,Button,Col,Row } from "react-bootstrap";
 import axios from "axios";
-import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-var FontAwesome = require('react-fontawesome');
 
 class LeaveApplicationEmpForm extends Component {
   state = {
+    selectedFile: null
   };
-  // constructor (){
-  //   super();
-
-  //       var today = new Date(),
-  //           date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-  //       var Today = new Date(),
-  //           time = Today.getHours() + ':' + Today.getMinutes();
-
-
-  //       this.state = {
-  //           date: date,
-  //           time: time
-  //       };
-  // }
   componentWillMount()  {
      
+  }
+
+  fileSelectedHandler = event => {
+    console.log(event.target.files[0]);
+  }
+
+  fileUploadHandler = () => {
+    axios.post('')
   }
   render() {
     return (
       <div>
         
-        <h2 id="role-form-title"> In timing </h2>
- <div id="role-form-outer-div"><Form id="form" onSubmit={this.props.onLeaveApplicationEmpSubmit}>
+        <h2 id="role-form-title">Lab Testing Detail Report</h2>
+ <div id="role-form-outer-div"><Form id="form" enctype="multipart/form-data" onSubmit={this.props.onLeaveApplicationEmpSubmit} >
   
 
  
-
   <Form.Group as={Row}>
     <Form.Label column sm={2}>
-    Date 
+        Date
+    </Form.Label>
+    <Col sm={10} className="form-input">
+        <Form.Control type="date" required />
+    </Col>
+ </Form.Group>
+ <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+     OA Number
     </Form.Label>
     <Col sm={10}  className="form-input">
-    {/* <FontAwesome name='calendar' />{this.state.date} */}
-    
-    <Form.Control type="date" required />
+      <Form.Control type="Text" placeholder="OA Number" required />
     </Col>
   </Form.Group>
   <Form.Group as={Row}>
     <Form.Label column sm={2}>
-    In Time
+     State
     </Form.Label>
     <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="InTime" required/>
+      <Form.Control type="Text" placeholder="State" required />
     </Col>
   </Form.Group>
   <Form.Group as={Row}>
     <Form.Label column sm={2}>
-    Out Time
+     customer Name 
     </Form.Label>
     <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="OutTime" />
+      <Form.Control type="Text" placeholder="Customer Name " required />
     </Col>
   </Form.Group>
   <Form.Group as={Row}>
     <Form.Label column sm={2}>
-    Location
+    Site Name
     </Form.Label>
     <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="Location" required/>
+      <Form.Control type="Text" placeholder="Site Name" required
+       />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+    Reported By
+    </Form.Label>
+    <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Reported By" required
+       />
+    </Col>
+  </Form.Group>
+  {/* <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+    Module Make
+    </Form.Label>
+    <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Module Make" required
+       />
+    </Col>
+  </Form.Group> */}
+  <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+    File Attachment
+    </Form.Label>
+    <Col sm={10}  className="form-input">
+      <Form.Control type="file" onChange={this.fileSelectedHandler}  multiple/>
     </Col>
   </Form.Group>
    

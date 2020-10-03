@@ -9,9 +9,10 @@ class LeaveApplicationEmpForm extends Component {
     // LeaveApplicationEmpData: this.props.editData["LeaveApplicationEmpName"],
 
     // LeavetypeData: this.props.editData["Leavetype"],
-    FromDateData: this.props.editData["FromDate"].slice(0, 10),
-    ToDateData: this.props.editData["ToDate"].slice(0, 10),
-    ReasonforleaveData: this.props.editData["Reasonforleave"],
+    DateData: this.props.editData["Date"].slice(0, 10),
+    InTimeData: this.props.editData["InTime"].slice(0, 10),
+    OutTimeData: this.props.editData["OutTime"].slice(0, 10),
+    LocationData: this.props.editData["Location"],
     // StatusData: this.props.editData["Status"],
 
     // value={this.state.CompanyNameData}
@@ -21,14 +22,17 @@ class LeaveApplicationEmpForm extends Component {
 //     this.setState({ CLeavetypeData: e.target.value });
 //   }
   
-  onFromDateDataChange(e) {
-    this.setState({ FromDateData: e.target.value });
+  onDateDataChange(e) {
+    this.setState({ DateData: e.target.value });
   }
-  onToDateDataChange(e) {
-    this.setState({ ToDateData: e.target.value });
+  onInTimeDataChange(e) {
+    this.setState({ InTimeData: e.target.value });
   }
-  onReasonforleaveDataChange(e) {
-    this.setState({ ReasonforleaveData: e.target.value });
+  onOutTimeDataChange(e) {
+    this.setState({ OutTimeData: e.target.value });
+  }
+  onLocationDataChange(e) {
+    this.setState({ LocationData: e.target.value });
   }
 //   onStatusDataChange(e) {
 //     this.setState({StatusData: e.target.value });
