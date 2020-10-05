@@ -17,8 +17,22 @@ class LeaveApplicationEmpForm extends Component {
         CustomerNameData: this.props.editData["CustomerName"],
         SiteNameData: this.props.editData["SiteName"],
         ReportedByData: this.props.editData["ReportedBy"],
-        // ModuleMakeData: this.props.editData["ModuleMake"],
-        // RemarkData: this.props.editData["Remark"],
+        SiteOwnerClientData: this.props.editData["SiteOwnerClient"],
+        CommissioningData: this.props.editData["Commissioning"],
+        MWCapacityACData: this.props.editData["MWCapacityAC"],
+        MWCapacityDCData: this.props.editData["MWCapacityDC"],
+        ModuleMake1Data: this.props.editData["ModuleMake1"],
+        ModuleMake2Data: this.props.editData["ModuleMake2"],
+        InstalledCapacityMW1Data: this.props.editData["InstalledCapacityMW1"],
+        InstalledCapacityMW2Data: this.props.editData["InstalledCapacityMW2"],
+        GroundMountedData: this.props.editData["GroundMounted"],
+        InstallationAngleData: this.props.editData["InstallationAngle"],
+        OrientationData: this.props.editData["Orientation"],
+        ModulesIn1ColumnData: this.props.editData["ModulesIn1Column"],
+        ModulesIn1StringData: this.props.editData["ModulesIn1String"],
+        TrackerData: this.props.editData["Tracker"],
+
+        
     // StatusData: this.props.editData["Status"],
 
     // value={this.state.CompanyNameData}
@@ -28,7 +42,7 @@ class LeaveApplicationEmpForm extends Component {
 //     this.setState({ CLeavetypeData: e.target.value });
 //   }
 
-  onAddExpenseDateDataChange(e) {
+  onDateDataChange(e) {
   this.setState({ DateData: e.target.value });
   }
   onOANumberDataChange(e) {
@@ -46,6 +60,52 @@ class LeaveApplicationEmpForm extends Component {
   onReportedByDataChange(e) {
         this.setState({ ReportedByData: e.target.value });
         }
+  onSiteOwnerClientDataChange(e){
+    this.setState({ SiteOwnerClientData: e.target.value });
+  }
+  onCommissioningDataChange(e){
+    this.setState({CommissioningData: e.target.value });
+  }
+  onMWCapacityACDataChange(e){
+    this.setState({ MWCapacityACData: e.target.value });
+
+  }
+  onMWCapacityDCDataChange(e){
+    this.setState({ MWCapacityDCData: e.target.value });
+  }
+
+  onModuleMake1DataChange(e){
+    this.setState({ ModuleMake1Data: e.target.value })
+  }
+  onModuleMake2DataChange(e){
+    this.setState({ ModuleMake2Data: e.target.value })
+  }
+
+  onInstalledCapacityMW1DataChange(e){
+    this.setState({ InstalledCapacityMW1Data: e.target.value })
+  }
+
+  onInstalledCapacityMW2DataChange(e){
+    this.setState({ InstalledCapacityMW2Data: e.target.value })
+  }
+  onGroundMountedDataChange(e){
+    this.setState({ GroundMountedData: e.target.value})
+  }
+  onInstallationAngleDataChange(e){
+    this.setState({ InstallationAngleData: e.target.value })
+  }
+  onOrientationDataChange(e){
+    this.setState({ OrientationData: e.target.value })
+  }
+  onModulesIn1ColumnDataChange(e){
+    this.setState({ ModulesIn1ColumnData: e.target.value })
+  }
+  onModulesIn1StringDataChange(e){
+    this.setState({ ModulesIn1StringData: e.target.value })
+  }
+  onTrackerDataChange(e){
+    this.setState({ TrackerData: e.target.value })
+  }
   // onModuleMakeDataChange(e) {
   //           this.setState({ ModuleMakeData: e.target.value });
   //       }
@@ -171,25 +231,150 @@ class LeaveApplicationEmpForm extends Component {
        onChange={value => this.onReportedByDataChange(value)}/>
     </Col>
   </Form.Group>
-  {/* <Form.Group as={Row}>
+  <Form.Group as={Row}>
      <Form.Label column sm={2}>
-      Module Make
+     Site Owner Client
      </Form.Label>
      <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="Module Make" required
-       value={this.state.ModuleMakeData}
-       onChange={value => this.onModuleMakeDataChange(value)}/>
+      <Form.Control type="Text" placeholder="Site Owner Client" required
+       value={this.state.SiteOwnerClientData}
+       onChange={value => this.onSiteOwnerClientDataChange(value)}/>
     </Col>
-  </Form.Group> */}
-  {/* <Form.Group as={Row}>
+  </Form.Group>
+  <Form.Group as={Row}>
      <Form.Label column sm={2}>
-      File Attachement 
+     Commissioning
      </Form.Label>
      <Col sm={10}  className="form-input">
-      <Form.Control type="file" placeholder="update file" required
-       />
+      <Form.Control type="date"  placeholder="Commissioning" required
+      value={this.state.CommissioningData}
+      onChange={value => this.onCommissioningDataChange(value)} />
     </Col>
-  </Form.Group> */}
+  </Form.Group>
+  
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     MW Capacity AC
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" MWCapacityAC " required
+      value={this.state.MWCapacityACData}
+      onChange={value => this.onMWCapacityACDataChange(value)} />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     MW Capacity DC
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" MWCapacityDC " required
+      value={this.state.MWCapacityDCData}
+      onChange={value => this.onMWCapacityDCDataChange(value)} />
+    </Col>
+  </Form.Group>
+  
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Module Make1 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Module Make1 " required
+      value={this.state.ModuleMake1Data}
+      onChange={value => this.onModuleMake1DataChange(value)} />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Module Make2
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Module Make2 " required
+      value={this.state.ModuleMake2Data}
+      onChange={value => this.onModuleMake2DataChange(value)} />
+    </Col>
+  </Form.Group>
+  
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Installed Capacity MW1 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" InstalledCapacity MW1 " required
+      value={this.state.InstalledCapacityMW1Data}
+      onChange={value => this.onInstalledCapacityMW1DataChange(value)} />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Installed Capacity MW2
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Installed Capacity MW2" required
+      value={this.state.InstalledCapacityMW2Data}
+      onChange={value => this.onInstalledCapacityMW2DataChange(value)} />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Installation Angle 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Installation Angle" required
+      value={this.state.InstallationAngleData}
+      onChange={value => this.onInstallationAngleDataChange(value)} />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Orientation
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Orientation" required
+      value={this.state.OrientationData}
+      onChange={value => this.onOrientationDataChange(value)} />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Modules In 1 Column
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Modules In 1 Column" required
+      value={this.state.ModulesIn1ColumnData}
+      onChange={value => this.onModulesIn1ColumnDataChange(value)} />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Modules In 1 String
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Modules In 1 String" required
+      value={this.state.ModulesIn1StringData}
+      onChange={value => this.onModulesIn1StringDataChange(value)} />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Tracker
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Tracker" required
+      value={this.state.TrackerData}
+      onChange={value => this.onTrackerDataChange(value)} />
+    </Col>
+  </Form.Group>
+
+
   {/* <Form.Group as={Row}>
      <Form.Label column sm={2}>
       Remarks

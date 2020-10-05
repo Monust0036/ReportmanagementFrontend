@@ -60,7 +60,7 @@ class LeaveApplicationEmp extends Component {
       TourStartDate: event.target[3].value,
       DestinationPlanned: event.target[4].value,
       TourNoGenerated: event.target[5].value,
-    //   Status: event.target[4].value,
+      Status: event.target[6].value,
     };
     axios
       .post(process.env.REACT_APP_API_URL+ "/api/tour-detail-emp/" + this.props.data["_id"], body, {
@@ -109,6 +109,7 @@ class LeaveApplicationEmp extends Component {
       TourStartDate: newInfo.target[3].value,
       DestinationPlanned: newInfo.target[4].value,
       TourNoGenerated: newInfo.target[5].value,
+      Status: newInfo.target[6].value,
 
       
     };

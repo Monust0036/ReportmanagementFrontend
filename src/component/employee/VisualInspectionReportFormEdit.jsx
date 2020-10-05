@@ -28,7 +28,7 @@ class LeaveApplicationEmpForm extends Component {
 //     this.setState({ CLeavetypeData: e.target.value });
 //   }
 
-  onAddExpenseDateDataChange(e) {
+  onDateDataChange(e) {
   this.setState({ DateData: e.target.value });
   }
   onOANumberDataChange(e) {
