@@ -164,7 +164,7 @@ class LeaveApplicationEmpForm extends Component {
           </Form.Control>
     </Col>
     </Form.Group> */}
-
+  <h4 id="role-form-title" style={{textAlign:"center" }}>Report Details</h4>
     <Form.Group as={Row}>
         <Form.Label column sm={2}>
                Date
@@ -202,7 +202,7 @@ class LeaveApplicationEmpForm extends Component {
     
       <Form.Group as={Row}>
      <Form.Label column sm={2}>
-      Customer Name 
+      JSR's Customer Name 
      </Form.Label>
      <Col sm={10}  className="form-input">
       <Form.Control type="Text" placeholder="CustomerName" required
@@ -231,6 +231,9 @@ class LeaveApplicationEmpForm extends Component {
        onChange={value => this.onReportedByDataChange(value)}/>
     </Col>
   </Form.Group>
+
+  <h4 id="role-form-title" style={{textAlign:"center" }}>Basic site Details 1 </h4>
+
   <Form.Group as={Row}>
      <Form.Label column sm={2}>
      Site Owner Client
@@ -273,6 +276,9 @@ class LeaveApplicationEmpForm extends Component {
       onChange={value => this.onMWCapacityDCDataChange(value)} />
     </Col>
   </Form.Group>
+
+
+  <h4 id="role-form-title" style={{textAlign:"center" }}>Basic site Details 2 </h4>
   
   <Form.Group as={Row}>
      <Form.Label column sm={2}>
@@ -316,6 +322,16 @@ class LeaveApplicationEmpForm extends Component {
       <Form.Control type="Text" placeholder="Installed Capacity MW2" required
       value={this.state.InstalledCapacityMW2Data}
       onChange={value => this.onInstalledCapacityMW2DataChange(value)} />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Ground Mounted/roof/terrace
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Ground Mounted " required
+      value={this.state.GroundMountedData}
+      onChange={value => this.onGroundMountedDataChange(value)} />
     </Col>
   </Form.Group>
 

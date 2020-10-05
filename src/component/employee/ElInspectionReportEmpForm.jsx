@@ -160,6 +160,18 @@ class LeaveApplicationEmpForm extends Component {
        />
     </Col>
   </Form.Group>
+  
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Ground Mounted/roof/terrace
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Ground Mounted " required
+       />
+    </Col>
+  </Form.Group>
+
+
 
   <Form.Group as={Row}>
      <Form.Label column sm={2}>
