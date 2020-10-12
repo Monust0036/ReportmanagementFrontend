@@ -188,7 +188,6 @@ class LeaveApplicationEmpForm extends Component {
        />
     </Col>
   </Form.Group>
-
   <Form.Group as={Row}>
      <Form.Label column sm={2}>
      Modules In 1 Column
@@ -218,24 +217,7 @@ class LeaveApplicationEmpForm extends Component {
       />
     </Col>
   </Form.Group>
-  {/* <Form.Group as={Row}>
-    <Form.Label column sm={2}>
-    Module Make
-    </Form.Label>
-    <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder=" Module Make" required
-       />
-    </Col>
-  </Form.Group> */}
-  {/* <Form.Group as={Row}>
-    <Form.Label column sm={2}>
-    Module Make
-    </Form.Label>
-    <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder=" Module Make" required
-       />
-    </Col>
-  </Form.Group> */}
+ 
   <Form.Group as={Row}>
     <Form.Label column sm={2}>
     File Attachment
