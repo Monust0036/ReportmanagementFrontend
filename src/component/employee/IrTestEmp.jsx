@@ -56,6 +56,22 @@ class LeaveApplicationEmp extends Component {
       CustomerName: event.target[3].value,
       SiteName: event.target[4].value,
       ReportedBy: event.target[5].value,
+      SiteOwnerClient:event.target[6].value,
+      Commissioning:event.target[7].value,
+      MWCapacityAC:event.target[8].value,
+      MWCapacityDC:event.target[9].value,
+      ModuleMake1:event.target[10].value,
+      ModuleMake2:event.target[11].value,
+      InstalledCapacityMW1:event.target[12].value,
+      InstalledCapacityMW2:event.target[13].value,
+      GroundMounted:event.target[14].value,
+      InstallationAngle:event.target[15].value,
+      Orientation:event.target[16].value,
+      ModulesIn1Column:event.target[17].value,
+      ModulesIn1String: event.target[18].value,
+      Tracker:event.target[19].value,
+      //   Status: event.target[4].value,
+      
       
 
      
@@ -118,6 +134,20 @@ class LeaveApplicationEmp extends Component {
       CustomerName: newInfo.target[3].value,
       SiteName: newInfo.target[4].value,
       ReportedBy: newInfo.target[5].value,
+      SiteOwnerClient:newInfo.target[6].value,
+      Commissioning:newInfo.target[7].value,
+      MWCapacityAC:newInfo.target[8].value,
+      MWCapacityDC:newInfo.target[9].value,
+      ModuleMake1:newInfo.target[10].value,
+      ModuleMake2:newInfo.target[11].value,
+      InstalledCapacityMW1:newInfo.target[12].value,
+      InstalledCapacityMW2:newInfo.target[13].value,
+      GroundMounted:newInfo.target[14].value,
+      InstallationAngle:newInfo.target[15].value,
+      Orientation:newInfo.target[16].value,
+      ModulesIn1Column:newInfo.target[17].value,
+      ModulesIn1String:newInfo.target[18].value,
+      Tracker:newInfo.target[19].value
     
      };
     console.log("update", body);

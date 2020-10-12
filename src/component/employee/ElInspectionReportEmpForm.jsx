@@ -93,7 +93,7 @@ class LeaveApplicationEmpForm extends Component {
      Commissioning
      </Form.Label>
      <Col sm={10}  className="form-input">
-      <Form.Control type="date"  placeholder="Commissioning" required
+      <Form.Control type="Text"  placeholder="Commissioning" required
       />
     </Col>
   </Form.Group>
@@ -120,7 +120,7 @@ class LeaveApplicationEmpForm extends Component {
   <h4 id="role-form-title" style={{textAlign:"center" }}>Basic Site Details 2</h4>
 
   
-  <Form.Group as={Row}>
+  {/* <Form.Group as={Row}>
      <Form.Label column sm={2}>
      Module Make1 
      </Form.Label>
@@ -221,7 +221,7 @@ class LeaveApplicationEmpForm extends Component {
       <Form.Control type="Text" placeholder=" Tracker" required
       />
     </Col>
-  </Form.Group>
+  </Form.Group> */}
   {/* <Form.Group as={Row}>
     <Form.Label column sm={2}>
     Module Make

@@ -78,6 +78,106 @@ class LeaveApplicationEmpTable extends Component {
         // width: 150,
         // filter: true ,
       },
+      {
+        headerName: "SiteOwnerClient",
+        field: "SiteOwnerClient",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "Commissioning",
+        field: "Commissioning",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      
+      {
+        headerName: "MWCapacityAC",
+        field: "MWCapacityAC",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "MWCapacityDC",
+        field: "MWCapacityDC",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "ModuleMake1",
+        field: "ModuleMake1",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "ModuleMake2",
+        field: "ModuleMake2",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "InstalledCapacityMW1",
+        field: "InstalledCapacityMW1",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "InstalledCapacityMW2",
+        field: "InstalledCapacityMW2",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "GroundMounted",
+        field: "GroundMounted",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "InstallationAngle",
+        field: "InstallationAngle",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "Orientation",
+        field: "Orientation",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "ModulesIn1Column",
+        field: "ModulesIn1Column",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "ModulesIn1String",
+        field: "ModulesIn1String",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      {
+        headerName: "Tracker",
+        field: "Tracker",
+        sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
+      
       
     //   {
     //     headerName: "Voc File Attachement",
@@ -87,14 +187,14 @@ class LeaveApplicationEmpTable extends Component {
     //     // width: 150,
     //     // filter: true ,
     //   },
-    //   {
-    //     headerName: "MOM Attachement",
-    //     field: "file",
-    //     cellRendererFramework: this.renderDownloadFile.bind(this)
-    //     // sortable: true,
-    //     // width: 150,
-    //     // filter: true ,
-    //   },
+      {
+        headerName: "Generate Pdf",
+        field: "download",
+        cellRendererFramework: this.renderDownloadFile.bind(this)
+        // sortable: true,
+        // width: 150,
+        // filter: true ,
+      },
 
 
       {
@@ -156,6 +256,20 @@ class LeaveApplicationEmpTable extends Component {
             CustomerName: data["CustomerName"],
             SiteName: data["SiteName"],
             ReportedBy: data["ReportedBy"],
+            SiteOwnerClient: data["SiteOwnerClient"],
+            Commissioning: data["Commissioning"],
+            MWCapacityAC: data["MWCapacityAC"],
+            MWCapacityDC: data["MWCapacityDC"],
+            ModuleMake1: data["ModuleMake1"],
+            ModuleMake2: data["ModuleMake2"],
+            InstalledCapacityMW1: data["InstalledCapacityMW1"],
+            InstalledCapacityMW2: data["InstalledCapacityMW2"],
+            GroundMounted: data["GroundMounted"],
+            InstallationAngle: data["InstallationAngle"],
+            Orientation: data["Orientation"],
+            ModulesIn1Column: data["ModulesIn1Column"],
+            ModulesIn1String: data["ModulesIn1String"],
+            Tracker: data["Tracker"],
             
 
             // ToDate: data["ToDate"].slice(0, 10),
@@ -221,7 +335,7 @@ renderDownloadFile(params) {
   return (
     <FontAwesomeIcon
       icon={faFileAlt}
-      onClick={() => this.onEdit(params.data.data)}
+      onClick={() => this.onCreateAndDownloadPdf(params.data.data)}
     />
   );
 }
@@ -246,6 +360,9 @@ renderDownloadFile(params) {
       );
     }
   };
+  onCreateAndDownloadPdf = () =>{
+    axios.post('/create-pdf', this.state)
+  }
 
   render() {
     return (

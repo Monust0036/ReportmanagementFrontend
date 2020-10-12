@@ -77,6 +77,156 @@ class LeaveApplicationEmpForm extends Component {
        />
     </Col>
   </Form.Group>
+  <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+    SiteOwnerClient
+    </Form.Label>
+    <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="SiteOwnerClient" required
+       />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+    Commissioning
+    </Form.Label>
+    <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Commissioning" required
+       />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+    MWCapacityAC
+    </Form.Label>
+    <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="WCapacityAC" required
+       />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+    MWCapacityDC
+    </Form.Label>
+    <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="MWCapacityDC" required
+       />
+    </Col>
+  </Form.Group>
+  <h4 id="role-form-title" style={{textAlign:"center" }}>Basic Site Details 2</h4>
+
+  
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Module Make1 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Module Make1 " required
+     />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Module Make2
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Module Make2 " required
+       />
+    </Col>
+  </Form.Group>
+  
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Installed Capacity MW1 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" InstalledCapacity MW1 " required
+       />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Installed Capacity MW2
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Installed Capacity MW2" required
+       />
+    </Col>
+  </Form.Group>
+  
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Ground Mounted/roof/terrace
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Ground Mounted " required
+       />
+    </Col>
+  </Form.Group>
+
+
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Installation Angle 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Installation Angle" required
+       />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Orientation
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Orientation" required
+       />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Modules In 1 Column
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Modules In 1 Column" required
+      />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Modules In 1 String
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Modules In 1 String" required
+       />
+    </Col>
+  </Form.Group>
+
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Tracker/seasonal tilt 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Tracker" required
+      />
+    </Col>
+  </Form.Group>
+  {/* <Form.Group as={Row}>
+    <Form.Label column sm={2}>
+    Module Make
+    </Form.Label>
+    <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" Module Make" required
+       />
+    </Col>
+  </Form.Group> */}
   {/* <Form.Group as={Row}>
     <Form.Label column sm={2}>
     Module Make

@@ -44,7 +44,7 @@ class LeaveApplicationEmp extends Component {
   }
   handleLeaveApplicationEmpSubmit = event => {
     event.preventDefault();
-    console.log("id", event.target[0].value, event.target[7].value);
+    console.log("id>>>>>>>>>>>>>>>>>>>>>>.", event.target[0].value,event.target[1].value);
     this.setState({ table: true });
 
     let body = {
@@ -60,29 +60,23 @@ class LeaveApplicationEmp extends Component {
       Commissioning:event.target[7].value,
       MWCapacityAC:event.target[8].value,
       MWCapacityDC:event.target[9].value,
-      ModuleMake1:event.target[10].value,
-      ModuleMake2:event.target[11].value,
-      InstalledCapacityMW1:event.target[12].value,
-      InstalledCapacityMW2:event.target[13].value,
-      GroundMounted:event.target[14].value,
-      InstallationAngle:event.target[15].value,
-      Orientation:event.target[16].value,
-      ModulesIn1Column:event.target[17].value,
-      ModulesIn1String: event.target[18].value,
-      Tracker:event.target[19].value,
-
-
-
-      
-
-     
-    //   Status: event.target[4].value,
+      // ModuleMake1:event.target[10].value,
+      // ModuleMake2:event.target[11].value,
+      // InstalledCapacityMW1:event.target[12].value,
+      // InstalledCapacityMW2:event.target[13].value,
+      // GroundMounted:event.target[14].value,
+      // InstallationAngle:event.target[15].value,
+      // Orientation:event.target[16].value,
+      // ModulesIn1Column:event.target[17].value,
+      // ModulesIn1String: event.target[18].value,
+      // Tracker:event.target[19].value,
+      //   Status: event.target[4].value,
     };
     
     axios
       .post(process.env.REACT_APP_API_URL+ "/api/el-inspection-report-emp/" + this.props.data["_id"], body, {
         headers: {
-          // "content-type": "multipart/form-data",
+          "content-type": "multipart/form-data",
           authorization: localStorage.getItem("token") || ""
         }
       })
@@ -139,16 +133,16 @@ class LeaveApplicationEmp extends Component {
       Commissioning:newInfo.target[7].value,
       MWCapacityAC:newInfo.target[8].value,
       MWCapacityDC:newInfo.target[9].value,
-      ModuleMake1:newInfo.target[10].value,
-      ModuleMake2:newInfo.target[11].value,
-      InstalledCapacityMW1:newInfo.target[12].value,
-      InstalledCapacityMW2:newInfo.target[13].value,
-      GroundMounted:newInfo.target[14].value,
-      InstallationAngle:newInfo.target[15].value,
-      Orientation:newInfo.target[16].value,
-      ModulesIn1Column:newInfo.target[17].value,
-      ModulesIn1String:newInfo.target[18].value,
-      Tracker:newInfo.target[19].value
+      // ModuleMake1:newInfo.target[10].value,
+      // ModuleMake2:newInfo.target[11].value,
+      // InstalledCapacityMW1:newInfo.target[12].value,
+      // InstalledCapacityMW2:newInfo.target[13].value,
+      // GroundMounted:newInfo.target[14].value,
+      // InstallationAngle:newInfo.target[15].value,
+      // Orientation:newInfo.target[16].value,
+      // ModulesIn1Column:newInfo.target[17].value,
+      // ModulesIn1String:newInfo.target[18].value,
+      // Tracker:newInfo.target[19].value
 
     
      };
