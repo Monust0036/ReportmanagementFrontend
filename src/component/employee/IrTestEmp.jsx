@@ -4,6 +4,7 @@ import axios from "axios";
 import LeaveApplicationEmpTable from "./IrTestEmpTable.jsx";
 import LeaveApplicationEmpForm from "./IrTestEmpForm.jsx";
 import LeaveApplicationEmpFormEdit from "./IrTestEmpFormEdit.jsx";
+// import ReportViewEdit from "./IrTestEmpFormEdit.jsx";
 class LeaveApplicationEmp extends Component {
   state = {
     table: true,
@@ -29,6 +30,7 @@ class LeaveApplicationEmp extends Component {
               <LeaveApplicationEmpTable
                 onAddLeaveApplicationEmp={this.handleAddLeaveApplicationEmp}
                 onEditLeaveApplicationEmp={this.handleEditLeaveApplicationEmp}
+
                 data={this.props.data}
               />
             )
@@ -70,7 +72,22 @@ class LeaveApplicationEmp extends Component {
       ModulesIn1Column:event.target[17].value,
       ModulesIn1String: event.target[18].value,
       Tracker:event.target[19].value,
-      //   Status: event.target[4].value,
+      // inspection result
+      AcceptanceValue:event.target[20].value,
+      NoOfOk:event.target[21].value,
+      NoOfNotOk:event.target[22].value,
+      NoOfRepairable:event.target[23].value,
+      NoOfNonRepairable:event.target[24].value,
+      // observation form 
+      Observation1:event.target[25].value,
+      Observation2:event.target[26].value,
+      Observation3:event.target[27].value,
+      Observation4:event.target[28].value,
+      InspectionDoneBy:event.target[29].value,
+      InspectionReviewedBy:event.target[30].value,
+      CheckingTogether:event.target[31].value,
+      SiteRepresentative:event.target[32].value,
+      // Status: event.target[33].value,
       
       
 
@@ -121,12 +138,7 @@ class LeaveApplicationEmp extends Component {
     newInfo.preventDefault();
     console.log("zero data", newInfo.target[0].value);
     let body = {
-    //   TeamLeaderName: newInfo.target[0].value,
-    //   TeamMember: newInfo.target[1].value,
-    //   TourStartLocation: newInfo.target[2].value,
-    //   TourStartDate: newInfo.target[3].value,
-    //   DestinationPlanned: newInfo.target[4].value,
-    //   TourNoGenerated: newInfo.target[5].value,
+   
 
       Date: newInfo.target[0].value,
       OANumber:newInfo.target[1].value,
@@ -147,7 +159,23 @@ class LeaveApplicationEmp extends Component {
       Orientation:newInfo.target[16].value,
       ModulesIn1Column:newInfo.target[17].value,
       ModulesIn1String:newInfo.target[18].value,
-      Tracker:newInfo.target[19].value
+      Tracker:newInfo.target[19].value,
+      // inspection result
+      AcceptanceValue:newInfo.target[20].value,
+      NoOfOk:newInfo.target[21].value,
+      NoOfNotOk:newInfo.target[22].value,
+      NoOfRepairable:newInfo.target[23].value,
+      NoOfNonRepairable:newInfo.target[24].value,
+      // observation form 
+      Observation1:newInfo.target[25].value,
+      Observation2:newInfo.target[26].value,
+      Observation3:newInfo.target[27].value,
+      Observation4:newInfo.target[28].value,
+      InspectionDoneBy:newInfo.target[29].value,
+      InspectionReviewedBy:newInfo.target[30].value,
+      CheckingTogether:newInfo.target[31].value,
+      SiteRepresentative:newInfo.target[32].value,
+      // Status: newInfo.target[33].value,
     
      };
     console.log("update", body);

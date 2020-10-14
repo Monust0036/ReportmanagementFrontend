@@ -217,6 +217,125 @@ class LeaveApplicationEmpForm extends Component {
       />
     </Col>
   </Form.Group>
+  <h4 id="role-form-title" style={{textAlign:"center" }}>Inspection Results</h4>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     AcceptanceValue
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="NoOfOk" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     NoOfOk
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" NoOfOk" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     NoOfNotOk
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder=" NoOfNotOk" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     NoOfRepairable 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="NoOfRepairable" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     NoOfNonRepairable
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="NoOfNonRepairable" required
+      />
+    </Col>
+  </Form.Group>
+  <h4 id="role-form-title" style={{textAlign:"center" }}>Observations / Deficiency Details</h4>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Observation1
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Observation 1" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Observation2 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Observation 2" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Observation3 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Observation 3" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     Observation4 
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="Observation 4" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     InspectionDoneBy
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="InspectionDoneBy" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     InspectionReviewedBy
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="InspectionReviewedBy" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     CheckingTogether
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="CheckingTogether" required
+      />
+    </Col>
+  </Form.Group>
+  <Form.Group as={Row}>
+     <Form.Label column sm={2}>
+     SiteRepresentative
+     </Form.Label>
+     <Col sm={10}  className="form-input">
+      <Form.Control type="Text" placeholder="SiteRepresentative" required
+      />
+    </Col>
+  </Form.Group>
  
   <Form.Group as={Row}>
     <Form.Label column sm={2}>
@@ -226,6 +345,16 @@ class LeaveApplicationEmpForm extends Component {
       <Form.Control type="file" onChange={this.fileSelectedHandler}  multiple/>
     </Col>
   </Form.Group>
+  {/* <Form.Group as={Row} >
+    <Form.Label column sm={2}>
+    Report Status
+    </Form.Label>
+    <Col sm={10} className="form-input">
+    <Form.Control as="select"  required>
+    <option value="1" selected>Pending</option>
+          </Form.Control>
+    </Col>
+    </Form.Group> */}
    
   {/* <Form.Group as={Row} >
     <Form.Label column sm={2}>

@@ -215,17 +215,17 @@ class LeaveApplicationEmpTable extends Component {
     );
   }
 
-  // status = s => {
-  //   if (s == 1) {
-  //     return "Pending";
-  //   }
-  //   if (s == 2) {
-  //     return "Approved";
-  //   }
-  //   if (s == 3) {
-  //     return "Rejected";
-  //   }
-  // };
+  status = s => {
+    if (s == 1) {
+      return "Pending";
+    }
+    if (s == 2) {
+      return "Approved";
+    }
+    if (s == 3) {
+      return "Rejected";
+    }
+  };
   onEdit = data => {
     if (data["Status"] == 1) {
       this.props.onEditLeaveApplicationEmp(data);

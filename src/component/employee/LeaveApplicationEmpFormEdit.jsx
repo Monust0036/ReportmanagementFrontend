@@ -12,7 +12,7 @@ class LeaveApplicationEmpForm extends Component {
     FromDateData: this.props.editData["FromDate"].slice(0, 10),
     ToDateData: this.props.editData["ToDate"].slice(0, 10),
     ReasonforleaveData: this.props.editData["Reasonforleave"],
-    // StatusData: this.props.editData["Status"],
+    StatusData: this.props.editData["Status"],
 
     // value={this.state.CompanyNameData}
     // onChange={value => this.onCompanyNameDataChange(value)}
@@ -30,9 +30,9 @@ class LeaveApplicationEmpForm extends Component {
   onReasonforleaveDataChange(e) {
     this.setState({ ReasonforleaveData: e.target.value });
   }
-//   onStatusDataChange(e) {
-//     this.setState({StatusData: e.target.value });
-//   }
+  onStatusDataChange(e) {
+    this.setState({StatusData: e.target.value });
+  }
 
   componentWillMount() {
   }
