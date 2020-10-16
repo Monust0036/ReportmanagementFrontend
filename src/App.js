@@ -22,6 +22,7 @@ import history from "./history.js";
 
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4200';
+// REACT_APP_API_URL=http://13.212.2.254:3001
 
 class App extends Component {
   state = {

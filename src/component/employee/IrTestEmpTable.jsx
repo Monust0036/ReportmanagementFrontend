@@ -13,6 +13,7 @@ import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalF
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import JsrLogo from "../../img/JSRLogo.png";
+import { param } from "react-dom-factories";
 
 
 
@@ -28,6 +29,8 @@ class LeaveApplicationEmpTable extends Component {
     leaveApplicationEmpData: [],
     loading: true,
     modal16: false,
+    irReportData:{},
+    // 
 
     columnDefs: [
 
@@ -289,6 +292,7 @@ class LeaveApplicationEmpTable extends Component {
         headerName: "Generate Pdf",
         field: "download",
         cellRendererFramework: this.renderDownloadFile.bind(this)
+        
         // sortable: true,
         // width: 150,
         // filter: true ,
@@ -353,7 +357,7 @@ class LeaveApplicationEmpTable extends Component {
       )
       .then(response => {
         this.leaveApplicationEmpObj = response.data;
-        console.log("response-----", response.data);
+        // console.log("response----->>>>>>>>>>>>>>>", response.data);
         this.setState({ leaveApplicationEmpData: response.data });
         this.setState({ loading: false });
         this.rowDataT = [];
@@ -414,7 +418,18 @@ class LeaveApplicationEmpTable extends Component {
         console.log(error);
       });
   };
-
+  getSingleirReportData = (data) =>{
+    console.log(")))))))))))))))))))))))))))))",data)
+    // this.setState({irReportData:data.data})
+    if(typeof data.data != 'undefined'){
+      console.log("not undefined")
+      if(Object.keys(data.data).length != 0){
+        console.log("not undefined",data.data)
+        this.setState({irReportData:data.data})
+      }
+    }
+    
+  }
   onLeaveApplicationEmpDelete = (e1, e2) => {
     console.log(e1, e2);
     if (window.confirm("Are you sure to delete this record? ") == true) {
@@ -462,7 +477,7 @@ class LeaveApplicationEmpTable extends Component {
   }
 
   renderButton(params) {
-    console.log(params);
+    // console.log(params);
     return (
       <FontAwesomeIcon
         icon={faTrash}
@@ -473,7 +488,7 @@ class LeaveApplicationEmpTable extends Component {
     );
   }
   renderEditButton(params) {
-    console.log(params);
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",params);
     return (
       <FontAwesomeIcon
         icon={faEdit}
@@ -482,7 +497,10 @@ class LeaveApplicationEmpTable extends Component {
     );
 }
 renderDownloadFile(params) {
-  console.log(params);
+
+  console.log("",params);
+  this.getSingleirReportData(params)
+  
   return (
     <FontAwesomeIcon
       icon={faFileAlt}
@@ -510,11 +528,12 @@ renderDownloadFile(params) {
       );
     }
   };
-  onCreateAndDownloadPdf = () =>{
-    axios.post('/create-pdf', this.state)
-  }
+  // onCreateAndDownloadPdf = () =>{
+  //   axios.post('/create-pdf', this.state)
+  // }
 
   render() {
+    // console.log(this.state.irReportData)
     return (
       <div id="table-outer-div-scroll">
         <h2 id="role-title">IR Test Reports</h2>
@@ -528,11 +547,15 @@ renderDownloadFile(params) {
           Add
         </Button>
         <MDBContainer>
-        <MDBBtn onClick={this.toggle(16)}>MDBModal</MDBBtn>
+        {/* <MDBBtn onClick={this.toggle(16)}>MDBModal</MDBBtn> */}
+        
+        <div>
         <MDBModal isOpen={this.state.modal16} toggle={this.toggle(16)} size="lg">
           <MDBModalHeader toggle={this.toggle(16)}></MDBModalHeader>
           <MDBModalBody>
-            <MDBContainer fluid className="text-white">
+        {
+        Object.keys(this.state.irReportData).length != 0 ? 
+        <MDBContainer fluid className="text-white">
               <MDBRow>
                 <MDBCol md="4" >
                 <img src={JsrLogo} alt="" style={{width:"75%"}}/>
@@ -555,21 +578,21 @@ renderDownloadFile(params) {
                 <h3 style={{fontSize:"18px", fontWeight:"600"}}>Report Details-</h3>
               <tr>
                 <td><p style={{fontWeight:"600", color:"brown"}}>OA Number</p></td>
-                <td><p>09090</p></td>
+                <td><p>{this.state.irReportData.OANumber}</p></td>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Date</p></td>
-                <td>13/10/2020</td>
+                <td><p>{this.state.irReportData.Date}</p></td>
               </tr>
                 <tr>
                   <td><p style={{fontWeight:"600", color:"brown"}}>State</p></td>
-                  <td><p>Mp</p></td>
+                  <td><p>{this.state.irReportData.State}</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>Report created by</p></td>
-                  <td>Sanket</td>
+                  <td><p>{this.state.irReportData.ReportedBy}</p></td>
                 </tr>
                 <tr>
                   <td><p style={{fontWeight:"600", color:"brown"}}>Site Name</p></td>
-                  <td><p>Indore</p></td>
+                  <td><p>{this.state.irReportData.SiteName}</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>JSR’s Customer</p></td>
-                  <td>Shivam</td>
+                  <td><p>{this.state.irReportData.CustomerName}</p></td>
                 </tr>
               </MDBTableBody>
             </MDBTable>
@@ -583,15 +606,15 @@ renderDownloadFile(params) {
                 
               <tr>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Site Owner Client</p></td>
-                <td><p>XYZ</p></td>
+                <td><p>{this.state.irReportData.SiteOwnerClient}</p></td>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Commissioning MM/YY</p></td>
-                <td>13/10/2020</td>
+                <td><p>{this.state.irReportData.Commissioning}</p></td>
               </tr>
                 <tr>
                   <td><p style={{fontWeight:"600", color:"brown"}}>MW Capacity AC</p></td>
-                  <td><p>25</p></td>
+                  <td><p>{this.state.irReportData.MWCapacityAC}</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>MW Capacity DC</p></td>
-                  <td>30</td>
+                  <td><p>{this.state.irReportData.MWCapacityDC}</p></td>
                 </tr>
               </MDBTableBody>
             </MDBTable>
@@ -602,41 +625,41 @@ renderDownloadFile(params) {
               <MDBTableBody>
                 
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Module Make</p></td>
+                <td><p style={{fontWeight:"600", color:"brown",backgroundColor:"grey"}}>Module Make</p></td>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Installed capacity MW</p></td>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Ground mounted/roof/terrace</p></td>
                 <td>Ground</td>
 
               </tr>
                 <tr>
-                  <td><p >Trina Solar</p></td>
-                  <td><p>21</p></td>
+                  <td><p>{this.state.irReportData.ModuleMake1}</p></td>
+                  <td><p>{this.state.irReportData.InstalledCapacityMW1}</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>Installation angle</p></td>
-                  <td>Sanket</td>
+                  <td><p>{this.state.irReportData.InstallationAngle}</p></td>
                 </tr>
                 <tr>
-                  <td><p >First Solar Thin Film</p></td>
-                  <td><p>9</p></td>
+                  <td><p>{this.state.irReportData.ModuleMake2}</p></td>
+                  <td><p>{this.state.irReportData.InstalledCapacityMW2}</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>Orientation</p></td>
-                  <td>Sanket</td>
+                  <td><p>{this.state.irReportData.Orientation}</p></td>
                 </tr>
                 <tr>
-                  <td><p >Trina Solar</p></td>
-                  <td><p>21</p></td>
+                  <td><p >...</p></td>
+                  <td><p>...</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>Modules in 1 column</p></td>
-                  <td>Sanket</td>
+                  <td><p>{this.state.irReportData.ModulesIn1Column}</p></td>
                 </tr>
                 <tr>
-                  <td><p >First Solar Thin Film</p></td>
-                  <td><p>9</p></td>
+                  <td><p >...</p></td>
+                  <td><p>...</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>Modules in 1 string</p></td>
-                  <td>Sanket</td>
+                  <td><td><p>{this.state.irReportData.ModulesIn1String}</p></td></td>
                 </tr>
                 <tr>
-                  <td><p >First Solar Thin Film</p></td>
-                  <td><p>9</p></td>
+                  <td><p >....</p></td>
+                  <td><p>...</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>Tracker/seasonal tilt</p></td>
-                  <td>No</td>
+                  <td><td><p>{this.state.irReportData.Tracker}</p></td></td>
                 </tr>
               </MDBTableBody>
             </MDBTable>
@@ -652,19 +675,19 @@ renderDownloadFile(params) {
                 <h3 style={{fontSize:"18px", fontWeight:"600"}}>Inspection Results -</h3>
               <tr>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Acceptance value in Mega Ohm</p></td>
-                <td><p>09090</p></td>
+                <td><p>{this.state.irReportData.AcceptanceValue}</p></td>
                 <td><p style={{fontWeight:"600", color:"brown"}}>No. of Repairable</p></td>
-                <td>400</td>
+                <td><p>{this.state.irReportData.NoOfRepairable}</p></td>
               </tr>
                 <tr>
                   <td><p style={{fontWeight:"600", color:"brown"}}>No of OK</p></td>
-                  <td><p>100</p></td>
+                  <td><p>{this.state.irReportData.NoOfOk}</p></td>
                   <td><p style={{fontWeight:"600", color:"brown"}}>No of Non Repairable</p></td>
-                  <td>200</td>
+                  <td><p>{this.state.irReportData.NoOfNonRepairable}</p></td>
                 </tr>
                 <tr>
                   <td><p style={{fontWeight:"600", color:"brown"}}>No of Not OK</p></td>
-                  <td><p>100</p></td>
+                  <td><p>{this.state.irReportData.NoOfNotOk}</p></td>
                   <td><p></p></td>
                   <td></td>
                 </tr>
@@ -673,59 +696,77 @@ renderDownloadFile(params) {
           </MDBRow>
           <MDBRow>
             <MDBTable responsive>
-      
+
+            <h3 style={{fontSize:"18px", fontWeight:"600"}}> Observations- </h3>
               <MDBTableBody>
-                <h3 style={{fontSize:"18px", fontWeight:"600"}}> Observations- </h3>
               <tr>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Sr No</p></td>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Observations / Deficiency details</p></td>
               </tr>
                 <tr>
                   <td><p>1</p></td>
-                  <td><p>Corrosion on cell connector</p></td>
+                  <td><p>{this.state.irReportData.Observation1}</p></td>
                 </tr>
                 <tr>
                   <td><p>2</p></td>
-                  <td><p>Green marks near busbar / string connectors</p></td>
+                  <td><p>{this.state.irReportData.Observation2}</p></td>
                 </tr>
                 <tr>
                   <td><p>3</p></td>
-                  <td><p>Backsheet damaged</p></td>
+                  <td><p>{this.state.irReportData.Observation3}</p></td>
                 </tr>
                 <tr>
                   <td><p>4</p></td>
-                  <td><p>De-lamination</p></td>
+                  <td><p>{this.state.irReportData.Observation4}</p></td>
                 </tr>
                 <br></br>
                 <tr>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Inspection done by</p></td>
-                <td><p >User</p></td>
+                <td><p>{this.state.irReportData.InspectionDoneBy}</p></td>
               </tr>
               <tr>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Inspection results reviewed by</p></td>
-                <td><p >Admin</p></td>
+                <td><p>{this.state.irReportData.InspectionReviewedBy}</p></td>
               </tr>
               <tr>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Checking together with (customer/site representative)</p></td>
-                <td><p >XXX</p></td>
+                <td><p>{this.state.irReportData.CheckingTogether}</p></td>
               </tr>
               <tr>
                 <td><p style={{fontWeight:"600", color:"brown"}}>Site SiteRepresentative</p></td>
-                <td><p >9useiiuo</p></td>
+                <td><p>{this.state.irReportData.SiteRepresentative}</p></td>
               </tr>
 
-                
-                
-                
-              </MDBTableBody>
+                </MDBTableBody>
             </MDBTable>
+            
           </MDBRow>
+          <MDBRow>
+                <MDBCol md="6" >
+                <div style={{color:"black",border:"1px solid black",padding:"10px 0 0 20px"}}>
+                    <p style={{marginBottom:"5px"}}>Format No: JSR/SI</p>
+                    <p>Rev Date and No: 00</p>
+                  </div>
+                
+                </MDBCol>
+                
+                <MDBCol md="6" >
+                  <div style={{color:"black",border:"1px solid black",padding:"10px 0 0 20px"}}>
+                    <p style={{marginBottom:"5px"}}>Compiled By: Sanket Thakkar</p>
+                    <p>Compiled date: 21st Jan, 2020</p>
+                  </div>
+                </MDBCol>
+              </MDBRow>
               
               
             </MDBContainer>
+            :<h1>Loader</h1>
+            }
           </MDBModalBody>
-          
+         
         </MDBModal>
+      
+    </div>
       </MDBContainer>
 
         <div id="clear-both" />
@@ -748,7 +789,7 @@ renderDownloadFile(params) {
               columnTypes={this.state.columnTypes}
               rowData={this.state.rowData}
               // floatingFilter={true}
-              // onGridReady={this.onGridReady}
+              onGridReady={this.onGridReady}
               pagination={true}
               paginationPageSize={10}
               getRowHeight={this.state.getRowHeight}
