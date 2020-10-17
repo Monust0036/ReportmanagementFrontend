@@ -98,6 +98,7 @@ class LeaveApplicationEmpTable extends Component {
         headerName: "Commissioning",
         field: "Commissioning",
         sortable: true,
+        type: ["dateColumn"],
         // width: 150,
         // filter: true ,
       },
@@ -373,7 +374,7 @@ class LeaveApplicationEmpTable extends Component {
             SiteName: data["SiteName"],
             ReportedBy: data["ReportedBy"],
             SiteOwnerClient: data["SiteOwnerClient"],
-            Commissioning: data["Commissioning"],
+            Commissioning: data["Commissioning"].slice(0, 10),
             MWCapacityAC: data["MWCapacityAC"],
             MWCapacityDC: data["MWCapacityDC"],
             ModuleMake1: data["ModuleMake1"],
@@ -424,14 +425,14 @@ class LeaveApplicationEmpTable extends Component {
     if(typeof data.data != 'undefined'){
       console.log("not undefined")
       if(Object.keys(data.data).length != 0){
-        console.log("not undefined",data.data)
+        console.log("kuchh to nya he",data)
         this.setState({irReportData:data.data})
       }
     }
     
   }
   onLeaveApplicationEmpDelete = (e1, e2) => {
-    console.log(e1, e2);
+    console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",e1, e2);
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
@@ -498,7 +499,7 @@ class LeaveApplicationEmpTable extends Component {
 }
 renderDownloadFile(params) {
 
-  console.log("",params);
+  console.log(">>>>>>>>>>>>>>>>.1111",params);
   this.getSingleirReportData(params)
   
   return (
@@ -572,27 +573,30 @@ renderDownloadFile(params) {
               </MDBRow>
               <br />
           <MDBRow>
-            <MDBTable responsive>
+          <h3 style={{fontSize:"18px", fontWeight:"600",color:"black"}}>Report Details-</h3>
+          </MDBRow>
+          <MDBRow>
+            <MDBTable bordered responsive>
       
               <MDBTableBody>
-                <h3 style={{fontSize:"18px", fontWeight:"600"}}>Report Details-</h3>
+                
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>OA Number</p></td>
-                <td><p>{this.state.irReportData.OANumber}</p></td>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Date</p></td>
-                <td><p>{this.state.irReportData.Date}</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>OA Number</p></td>
+                <td><p style={{fontWeight:"600"}}>{this.state.irReportData.OANumber}</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Date</p></td>
+                <td><p style={{fontWeight:"600"}}>{this.state.irReportData.Date}</p></td>
               </tr>
                 <tr>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>State</p></td>
-                  <td><p>{this.state.irReportData.State}</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>Report created by</p></td>
-                  <td><p>{this.state.irReportData.ReportedBy}</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}} ><p style={{fontWeight:"600", color:"brown"}}>State</p></td>
+                  <td><p style={{fontWeight:"600"}}>{this.state.irReportData.State}</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}} ><p style={{fontWeight:"600", color:"brown"}}>Report created by</p></td>
+                  <td><p style={{fontWeight:"600"}}>{this.state.irReportData.ReportedBy}</p></td>
                 </tr>
                 <tr>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>Site Name</p></td>
-                  <td><p>{this.state.irReportData.SiteName}</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>JSR’s Customer</p></td>
-                  <td><p>{this.state.irReportData.CustomerName}</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}} ><p style={{fontWeight:"600", color:"brown"}}>Site Name</p></td>
+                  <td><p style={{fontWeight:"600"}}>{this.state.irReportData.SiteName}</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}} ><p style={{fontWeight:"600", color:"brown"}}>JSR’s Customer</p></td>
+                  <td><p style={{fontWeight:"600"}}>{this.state.irReportData.CustomerName}</p></td>
                 </tr>
               </MDBTableBody>
             </MDBTable>
@@ -600,93 +604,99 @@ renderDownloadFile(params) {
 
 
             <MDBRow>
-            <MDBTable responsive>
-            <h3 style={{fontSize:"18px", fontWeight:"600"}}>Basic Site Details-1 </h3>
+              <h3 style={{fontSize:"18px", fontWeight:"600",color:"black"}}>Basic Site Details-1 </h3>
+            </MDBRow>
+            <MDBRow>  
+            <MDBTable bordered responsive>
+            
               <MDBTableBody>
                 
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Site Owner Client</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}} ><p style={{fontWeight:"600", color:"brown"}}>Site Owner Client</p></td>
                 <td><p>{this.state.irReportData.SiteOwnerClient}</p></td>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Commissioning MM/YY</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}} ><p style={{fontWeight:"600", color:"brown"}}>Commissioning MM/YY</p></td>
                 <td><p>{this.state.irReportData.Commissioning}</p></td>
               </tr>
                 <tr>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>MW Capacity AC</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>MW Capacity AC</p></td>
                   <td><p>{this.state.irReportData.MWCapacityAC}</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>MW Capacity DC</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>MW Capacity DC</p></td>
                   <td><p>{this.state.irReportData.MWCapacityDC}</p></td>
                 </tr>
               </MDBTableBody>
             </MDBTable>
             </MDBRow>
+
             <MDBRow>
-            <MDBTable responsive>
-              <h3 style={{fontSize:"18px", fontWeight:"600"}}>Basic Site Details-2 </h3>
+            <h3 style={{fontSize:"18px", fontWeight:"600",color:"black"}}>Basic Site Details-2 </h3>
+            </MDBRow>
+            <MDBRow>
+              <MDBTable bordered responsive>
+              
               <MDBTableBody>
                 
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown",backgroundColor:"grey"}}>Module Make</p></td>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Installed capacity MW</p></td>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Ground mounted/roof/terrace</p></td>
-                <td>Ground</td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Module Make</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Installed capacity MW</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Ground mounted/roof/terrace</p></td>
+                <td><p>{this.state.irReportData.GroundMounted}</p></td>
 
               </tr>
                 <tr>
                   <td><p>{this.state.irReportData.ModuleMake1}</p></td>
                   <td><p>{this.state.irReportData.InstalledCapacityMW1}</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>Installation angle</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Installation angle</p></td>
                   <td><p>{this.state.irReportData.InstallationAngle}</p></td>
                 </tr>
                 <tr>
                   <td><p>{this.state.irReportData.ModuleMake2}</p></td>
                   <td><p>{this.state.irReportData.InstalledCapacityMW2}</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>Orientation</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Orientation</p></td>
                   <td><p>{this.state.irReportData.Orientation}</p></td>
                 </tr>
                 <tr>
-                  <td><p >...</p></td>
-                  <td><p>...</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>Modules in 1 column</p></td>
+                  <td><p ></p></td>
+                  <td><p></p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Modules in 1 column</p></td>
                   <td><p>{this.state.irReportData.ModulesIn1Column}</p></td>
                 </tr>
                 <tr>
-                  <td><p >...</p></td>
-                  <td><p>...</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>Modules in 1 string</p></td>
-                  <td><td><p>{this.state.irReportData.ModulesIn1String}</p></td></td>
+                  <td><p ></p></td>
+                  <td><p></p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Modules in 1 string</p></td>
+                  <td><p>{this.state.irReportData.ModulesIn1String}</p></td>
                 </tr>
                 <tr>
-                  <td><p >....</p></td>
-                  <td><p>...</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>Tracker/seasonal tilt</p></td>
-                  <td><td><p>{this.state.irReportData.Tracker}</p></td></td>
+                  <td><p ></p></td>
+                  <td><p></p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Tracker/seasonal tilt</p></td>
+                  <td><p>{this.state.irReportData.Tracker}</p></td>
                 </tr>
               </MDBTableBody>
             </MDBTable>
             </MDBRow>
               <MDBRow>
-               
+                  <h3 style={{fontSize:"18px", fontWeight:"600",color:"black"}}>Inspection Results -</h3>
               </MDBRow>
 
             <MDBRow>
-            <MDBTable responsive>
+            <MDBTable bordered responsive>
       
               <MDBTableBody>
-                <h3 style={{fontSize:"18px", fontWeight:"600"}}>Inspection Results -</h3>
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Acceptance value in Mega Ohm</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>Acceptance value in Mega Ohm</p></td>
                 <td><p>{this.state.irReportData.AcceptanceValue}</p></td>
-                <td><p style={{fontWeight:"600", color:"brown"}}>No. of Repairable</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>No. of Repairable</p></td>
                 <td><p>{this.state.irReportData.NoOfRepairable}</p></td>
               </tr>
                 <tr>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>No of OK</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>No of OK</p></td>
                   <td><p>{this.state.irReportData.NoOfOk}</p></td>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>No of Non Repairable</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>No of Non Repairable</p></td>
                   <td><p>{this.state.irReportData.NoOfNonRepairable}</p></td>
                 </tr>
                 <tr>
-                  <td><p style={{fontWeight:"600", color:"brown"}}>No of Not OK</p></td>
+                  <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"brown"}}>No of Not OK</p></td>
                   <td><p>{this.state.irReportData.NoOfNotOk}</p></td>
                   <td><p></p></td>
                   <td></td>
@@ -695,13 +705,14 @@ renderDownloadFile(params) {
             </MDBTable>
           </MDBRow>
           <MDBRow>
-            <MDBTable responsive>
-
-            <h3 style={{fontSize:"18px", fontWeight:"600"}}> Observations- </h3>
+              <h3 style={{fontSize:"18px", fontWeight:"600",color:"black"}}> Observations- </h3>
+          </MDBRow>
+          <MDBRow>
+            <MDBTable bordered responsive>
               <MDBTableBody>
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Sr No</p></td>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Observations / Deficiency details</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"black"}}>Sr No</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"black"}}>Observations / Deficiency details</p></td>
               </tr>
                 <tr>
                   <td><p>1</p></td>
@@ -721,19 +732,19 @@ renderDownloadFile(params) {
                 </tr>
                 <br></br>
                 <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Inspection done by</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"black"}}>Inspection done by</p></td>
                 <td><p>{this.state.irReportData.InspectionDoneBy}</p></td>
               </tr>
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Inspection results reviewed by</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"black"}}>Inspection results reviewed by</p></td>
                 <td><p>{this.state.irReportData.InspectionReviewedBy}</p></td>
               </tr>
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Checking together with (customer/site representative)</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"black"}}>Checking together with (customer/site representative)</p></td>
                 <td><p>{this.state.irReportData.CheckingTogether}</p></td>
               </tr>
               <tr>
-                <td><p style={{fontWeight:"600", color:"brown"}}>Site SiteRepresentative</p></td>
+                <td style={{backgroundColor:"rgb(211 208 228 / 91%)"}}><p style={{fontWeight:"600", color:"black"}}>Site SiteRepresentative</p></td>
                 <td><p>{this.state.irReportData.SiteRepresentative}</p></td>
               </tr>
 
@@ -741,22 +752,27 @@ renderDownloadFile(params) {
             </MDBTable>
             
           </MDBRow>
-          <MDBRow>
-                <MDBCol md="6" >
-                <div style={{color:"black",border:"1px solid black",padding:"10px 0 0 20px"}}>
-                    <p style={{marginBottom:"5px"}}>Format No: JSR/SI</p>
-                    <p>Rev Date and No: 00</p>
-                  </div>
+          <MDBRow>  
+            <MDBTable bordered responsive>
+            
+              <MDBTableBody>
                 
-                </MDBCol>
-                
-                <MDBCol md="6" >
-                  <div style={{color:"black",border:"1px solid black",padding:"10px 0 0 20px"}}>
-                    <p style={{marginBottom:"5px"}}>Compiled By: Sanket Thakkar</p>
-                    <p>Compiled date: 21st Jan, 2020</p>
-                  </div>
-                </MDBCol>
-              </MDBRow>
+              <tr>
+                <td><p >Format No: JSR/SI</p></td>
+                <td><p>Compiled By: Sanket Thakkar</p></td>
+                {/* <td><p style={{fontWeight:"600", color:"brown"}}>Commissioning MM/YY</p></td>
+                <td><p>{this.state.irReportData.Commissioning}</p></td> */}
+              </tr>
+                <tr>
+                  <td><p >Rev Date and No: 00</p></td>
+                  <td><p>Compiled date: 21st Jan, 2020</p></td>
+                  {/* <td><p style={{fontWeight:"600", color:"brown"}}>MW Capacity DC</p></td>
+                  <td><p>{this.state.irReportData.MWCapacityDC}</p></td> */}
+                </tr>
+              </MDBTableBody>
+            </MDBTable>
+            </MDBRow>
+          {/*  */}
               
               
             </MDBContainer>

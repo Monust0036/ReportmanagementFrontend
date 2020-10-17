@@ -14,7 +14,7 @@ class LeaveApplicationEmpForm extends Component {
         SiteNameData: this.props.editData["SiteName"],
         ReportedByData: this.props.editData["ReportedBy"],
         SiteOwnerClientData:this.props.editData["SiteOwnerClient"],
-        CommissioningData:this.props.editData["Commissioning"],
+        CommissioningData:this.props.editData["Commissioning"].slice(0, 10),
         MWCapacityACData:this.props.editData["MWCapacityAC"],
         MWCapacityDCData:this.props.editData["MWCapacityDC"],
         ModuleMake1Data:this.props.editData["ModuleMake1"],
@@ -269,7 +269,7 @@ class LeaveApplicationEmpForm extends Component {
      Commissioning 
      </Form.Label>
      <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="CommissioningData" required
+      <Form.Control type="date" placeholder="CommissioningData" required
        value={this.state.SiteOwnerClientData}
        onChange={value => this.onCommissioningDataChange(value)}/>
     </Col>

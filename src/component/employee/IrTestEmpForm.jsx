@@ -91,7 +91,7 @@ class LeaveApplicationEmpForm extends Component {
     Commissioning
     </Form.Label>
     <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="Commissioning" required
+      <Form.Control type="date" placeholder="Commissioning" required
        />
     </Col>
   </Form.Group>
