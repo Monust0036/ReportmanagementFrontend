@@ -223,7 +223,7 @@ class LeaveApplicationEmpForm extends Component {
      AcceptanceValue
      </Form.Label>
      <Col sm={10}  className="form-input">
-      <Form.Control type="Text" placeholder="NoOfOk" required
+      <Form.Control type="Text" placeholder="AcceptanceValue" required
       />
     </Col>
   </Form.Group>

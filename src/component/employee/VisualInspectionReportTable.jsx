@@ -436,7 +436,7 @@ class LeaveApplicationEmpTable extends Component {
     if (window.confirm("Are you sure to delete this record? ") == true) {
       axios
         .delete(
-          process.env.REACT_APP_API_URL+ "/api/ir-test-emp/" + e1 + "/" + e2, {
+          process.env.REACT_APP_API_URL+ "/api/visual-inspection-report-emp/" + e1 + "/" + e2, {
           headers: {
             authorization: localStorage.getItem("token") || ""
           }

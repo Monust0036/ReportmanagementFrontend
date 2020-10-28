@@ -270,7 +270,7 @@ class LeaveApplicationEmpForm extends Component {
      </Form.Label>
      <Col sm={10}  className="form-input">
       <Form.Control type="date" placeholder="CommissioningData" required
-       value={this.state.SiteOwnerClientData}
+       value={this.state.CommissioningData}
        onChange={value => this.onCommissioningDataChange(value)}/>
     </Col>
   </Form.Group>
