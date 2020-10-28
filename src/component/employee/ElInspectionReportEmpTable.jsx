@@ -14,6 +14,7 @@ import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import JsrLogo from "../../img/JSRLogo.png";
 import Piechart from "../../img/piechart.png";
+import Testimg from "../../img/test.jpg"
 import { param } from "react-dom-factories";
 
 
@@ -862,12 +863,12 @@ renderDownloadFile(params) {
                 <MDBTable bordered responsive>
                   <MDBTableBody>
                     <tr>
-                      <td>Severity</td>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>3</td>
-                      <td>4</td>
-                      <td>5</td>
+                    <td>Severity</td>
+                      <td style={{backgroundColor:"#4ec312a1"}}>1</td>
+                      <td style={{backgroundColor:"#34aec1"}}>2</td>
+                      <td style={{backgroundColor:"#ffde66e6"}}>3</td>
+                      <td style={{backgroundColor:"#ecba7cf2"}}>4</td>
+                      <td style={{backgroundColor:"#e8350cf0"}}>5</td>
                     </tr>
                     <tr>
                       <td>No of defects</td>
@@ -883,15 +884,16 @@ renderDownloadFile(params) {
                 <MDBTable bordered responsive >
                   <MDBTableBody>
                   <tr>
-                      <td>Image Severity Score</td>
-                      <td>{this.state.irReportData.TableNo}</td>
-                      <td>Module Class</td>
-                      <td>{this.state.irReportData.ModuleClass}</td>
+                      <td style={{backgroundColor:"rgb(155 124 230 / 95%)",fontWeight:"600"}}>Image Severity Score</td>
+                      <td style={{backgroundColor:"rgb(155 124 230 / 95%)",fontWeight:"600"}}>{this.state.irReportData.TableNo}</td>
+                      <td style={{backgroundColor:"#ecba7cf2",fontWeight:"600"}}>Module Class</td>
+                      <td style={{backgroundColor:"#ecba7cf2",fontWeight:"600"}}>{this.state.irReportData.ModuleClass}</td>
 
                     </tr>
 
                   </MDBTableBody>
                 </MDBTable> 
+                <img src={Testimg} alt="" style={{width:"100%"}}/>
               </MDBCol>
               <MDBCol size="6" style={{border:"1px solid black",color:"black"}}>
                 <p style={{marginBottom:"2px"}}>ModuleSerialNo:-  {this.state.irReportData.ModuleSerialNo}</p>
@@ -902,11 +904,11 @@ renderDownloadFile(params) {
                   <MDBTableBody>
                     <tr>
                       <td>Severity</td>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>3</td>
-                      <td>4</td>
-                      <td>5</td>
+                      <td style={{backgroundColor:"#4ec312a1"}}>1</td>
+                      <td style={{backgroundColor:"#34aec1"}}>2</td>
+                      <td style={{backgroundColor:"#ffde66e6"}}>3</td>
+                      <td style={{backgroundColor:"#ecba7cf2"}}>4</td>
+                      <td style={{backgroundColor:"#e8350cf0"}}>5</td>
                     </tr>
                     <tr>
                       <td>No of defects</td>
@@ -922,15 +924,16 @@ renderDownloadFile(params) {
                 <MDBTable bordered responsive >
                   <MDBTableBody>
                   <tr>
-                      <td>Image Severity Score</td>
-                      <td>{this.state.irReportData.TableNo}</td>
-                      <td>Module Class</td>
-                      <td>{this.state.irReportData.ModuleClass}</td>
+                      <td style={{backgroundColor:"rgb(155 124 230 / 95%)",fontWeight:"600"}}>Image Severity Score</td>
+                      <td style={{backgroundColor:"rgb(155 124 230 / 95%)",fontWeight:"600"}}>{this.state.irReportData.TableNo}</td>
+                      <td style={{backgroundColor:"#ecba7cf2",fontWeight:"600"}}>Module Class</td>
+                      <td style={{backgroundColor:"#ecba7cf2",fontWeight:"600"}}>{this.state.irReportData.ModuleClass}</td>
 
                     </tr>
 
                   </MDBTableBody>
-                </MDBTable> 
+                </MDBTable>
+                <img src={Testimg} alt="" style={{width:"100%"}}/> 
               </MDBCol>
           </MDBRow>
           <br></br>

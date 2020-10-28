@@ -558,13 +558,13 @@ renderDownloadFile(params) {
         Object.keys(this.state.irReportData).length != 0 ? 
         <MDBContainer fluid className="text-white">
               <MDBRow>
-                <MDBCol md="4" >
+                <MDBCol md="4" style={{border:"1px solid black"}}>
                 <img src={JsrLogo} alt="" style={{width:"75%"}}/>
                   </MDBCol>
-                  <MDBCol md="4" >
-                  <h3 style={{fontSize:"25px", fontWeight:"600",color:"#212529"}}>Visual Inspection Report</h3>
+                  <MDBCol md="4" style={{border:"1px solid black",display:"flex",alignItems:"center"}}>
+                  <h3 style={{fontSize:"20px", fontWeight:"600",color:"#212529"}}>Visual Inspection Report</h3>
                   </MDBCol>
-                <MDBCol md="4" >
+                <MDBCol md="4" style={{border:"1px solid black"}}>
                   <div style={{color:"black"}}>
                     <p style={{marginBottom:"5px"}}>Report Date: 13/10/2020</p>
                     <p>Report No: XXXXXXX88</p>
