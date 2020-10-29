@@ -21,7 +21,6 @@ import {
 import history from "./history.js";
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4200';
-// const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4200';
 
 
 class App extends Component {
